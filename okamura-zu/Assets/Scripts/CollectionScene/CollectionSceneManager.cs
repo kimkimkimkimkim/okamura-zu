@@ -52,8 +52,8 @@ public class CollectionSceneManager : MonoBehaviour
         GameObject item = (GameObject)Instantiate(itemPrefab);
         item.transform.SetParent(canvasGame.transform, false);
         item.transform.localPosition = new Vector3(
-            UnityEngine.Random.Range(-300.0f, 300.0f),
-            UnityEngine.Random.Range(-140.0f, -500.0f),
+            UnityEngine.Random.Range(-400.0f, 400.0f),
+            UnityEngine.Random.Range(300.0f, -600.0f),
             0f);
     }
 
