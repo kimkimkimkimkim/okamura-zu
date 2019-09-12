@@ -16,4 +16,9 @@ public class ItemManager : MonoBehaviour
         collectionScreenManager.GetComponent<CollectionSceneManager>().GetItem();
         Destroy(this.gameObject);
     }
+
+    public void ClickItem(){
+        collectionScreenManager.GetComponent<CollectionSceneManager>().GetItem();
+        Destroy(this.gameObject);
+    }
 }

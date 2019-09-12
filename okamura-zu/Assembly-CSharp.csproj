@@ -57,6 +57,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CollectionScene\CollectionSceneManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\ItemManager.cs" />
+     <Compile Include="Assets\Scripts\Common\SaveData.cs" />
+     <Compile Include="Assets\Scripts\Common\SaveDataKeys.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
