@@ -55,11 +55,13 @@ public class CollectionSceneManager : MonoBehaviour
     //セーブデータを取得
     private void GetSaveDate(){
         int _maxItemCount = SaveData.GetInt(SaveDataKeys.maxItemCount,10);
+        int _nowItemCount = SaveData.GetInt(SaveDataKeys.nowItemCount);
         int _possessedPoint = SaveData.GetInt(SaveDataKeys.possessedPoint);
         string _lastDateTime = SaveData.GetString(SaveDataKeys.lastDateTime,DateTime.UtcNow.ToBinary().ToString());
         long binary = Convert.ToInt64(_lastDateTime);
 
         maxItemCount = _maxItemCount;
+        currentItemCount = _nowItemCount;
         possessedPoint = _possessedPoint;
         lastDateTime = DateTime.FromBinary(binary);
     }
@@ -68,17 +70,18 @@ public class CollectionSceneManager : MonoBehaviour
     private void UpdatePointText(){
         txtPoint.GetComponent<Text>().text = possessedPoint.ToString();
 
-        //データ保存
+        //データ保存 possessedPoint
         SaveData.SetInt(SaveDataKeys.possessedPoint,possessedPoint);
         SaveData.Save();
     }
 
     //ItemCountテキストの更新
-    private void UpdateItemCountText(){
+    public void UpdateItemCountText(){
         txtNowItemCount.GetComponent<Text>().text = currentItemCount.ToString();
         txtMaxItemCount.GetComponent<Text>().text = maxItemCount.ToString();
+        Debug.Log("SAVE!!!!!");
 
-        //データ保存
+        //データ保存 nowItemCount,maxItemCount
         SaveData.SetInt(SaveDataKeys.nowItemCount,currentItemCount);
         SaveData.SetInt(SaveDataKeys.maxItemCount,maxItemCount);
         SaveData.Save();
@@ -88,7 +91,7 @@ public class CollectionSceneManager : MonoBehaviour
     public void CreateNewItem(){
         lastDateTime = DateTime.UtcNow;
 
-        //データ保存
+        //データ保存　lastDateTime
         SaveData.SetString(SaveDataKeys.lastDateTime,lastDateTime.ToBinary().ToString());
         SaveData.Save();
 
