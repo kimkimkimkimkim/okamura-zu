@@ -8,5 +8,9 @@ public class SaveDataKeys{
     static public string nowItemCount = "nowItemCount"; //現在のアイテム生成数
     static public string lastDateTime = "lastDateTime"; //最終アイテム生成時刻
     static public string possessedPoint = "possessedPoint"; //所持ポイント
+    static public string gachaCost = "gachaCost"; //１回のガチャにかかるお金
+    static public string itemGenerationSpeed = "itemGenerationSpeed"; //アイテム生成スピード
+    static public string itemUnitPrice = "itemUnitPrice"; //アイテム単価
+    static public string itemNumberOfGenerationOnClick = "itemNumberOfGenerationOnClick"; //アイテムのタップ時生成数
 }
 

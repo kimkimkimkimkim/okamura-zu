@@ -55,16 +55,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\naichilab\FadeManager\Sample\FadeSample.cs" />
      <Compile Include="Assets\naichilab\FadeManager\Scripts\FadeManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\BackButtonManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\CollectionSceneManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\ItemManager.cs" />
+     <Compile Include="Assets\Scripts\Common\InitialValues.cs" />
      <Compile Include="Assets\Scripts\Common\SaveData.cs" />
      <Compile Include="Assets\Scripts\Common\SaveDataKeys.cs" />
-     <Compile Include="Assets\Scripts\MainScene\MainButtonManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\MainSceneManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\ToCollectionSceneButtonManager.cs" />
+     <None Include="Assets\Demigiant\DOTween\readme.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -259,6 +267,9 @@
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>/Applications/Unity/Hub/Editor/2019.1.10f1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
  <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>

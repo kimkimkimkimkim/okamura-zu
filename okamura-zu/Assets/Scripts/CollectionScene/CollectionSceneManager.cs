@@ -79,7 +79,6 @@ public class CollectionSceneManager : MonoBehaviour
     public void UpdateItemCountText(){
         txtNowItemCount.GetComponent<Text>().text = currentItemCount.ToString();
         txtMaxItemCount.GetComponent<Text>().text = maxItemCount.ToString();
-        Debug.Log("SAVE!!!!!");
 
         //データ保存 nowItemCount,maxItemCount
         SaveData.SetInt(SaveDataKeys.nowItemCount,currentItemCount);

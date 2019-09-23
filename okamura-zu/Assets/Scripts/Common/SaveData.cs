@@ -245,6 +245,7 @@ public class SaveData
 
 		}
 
+		/*
 		/// <summary>
 		/// クラスが破棄される時点でファイルに書き込みます。
 		/// </summary>
@@ -252,6 +253,7 @@ public class SaveData
 		{
 			Save ();
 		}
+		*/
 
 		#endregion
 
