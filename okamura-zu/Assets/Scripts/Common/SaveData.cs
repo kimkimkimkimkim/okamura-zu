@@ -342,7 +342,8 @@ public class SaveData
 			float ret;
 			keyCheck (key);
 			if (!saveDictionary.ContainsKey (key))
-				ret = _default;
+				//ret = _default;
+				return _default;
 
 			if (!float.TryParse (saveDictionary [key], out ret)) {
 				ret = 0.0f;

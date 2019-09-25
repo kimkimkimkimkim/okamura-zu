@@ -5,9 +5,10 @@ ScriptsOnlyBuild:
     - CollectionSceneManager
     - FadeManager
     - ItemManager
-    - MainButtonManager
     - MainSceneManager
     - ToCollectionSceneButtonManager
+    DOTween.dll:
+    - DG.Tweening.Core.DOTweenSettings
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -43,27 +44,27 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9370}
-    - Class: 114
-      Script: {instanceID: 9376}
-    - Class: 114
-      Script: {instanceID: 9378}
-    - Class: 114
-      Script: {instanceID: 9382}
+      Script: {instanceID: 9384}
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 9426}
+      Script: {instanceID: 9392}
     - Class: 114
-      Script: {instanceID: 9428}
+      Script: {instanceID: 9396}
     - Class: 114
-      Script: {instanceID: 9750}
+      Script: {instanceID: 9404}
     - Class: 114
-      Script: {instanceID: 10440}
+      Script: {instanceID: 9440}
     - Class: 114
-      Script: {instanceID: 11618}
+      Script: {instanceID: 9442}
     - Class: 114
-      Script: {instanceID: 12212}
+      Script: {instanceID: 9770}
+    - Class: 114
+      Script: {instanceID: 9952}
+    - Class: 114
+      Script: {instanceID: 10086}
+    - Class: 114
+      Script: {instanceID: 10484}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -96,27 +97,27 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9370}
+      Script: {instanceID: 9350}
     - Class: 114
-      Script: {instanceID: 9376}
-    - Class: 114
-      Script: {instanceID: 9378}
-    - Class: 114
-      Script: {instanceID: 9382}
+      Script: {instanceID: 9384}
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 9426}
+      Script: {instanceID: 9392}
     - Class: 114
-      Script: {instanceID: 9428}
+      Script: {instanceID: 9396}
     - Class: 114
-      Script: {instanceID: 11618}
+      Script: {instanceID: 9404}
     - Class: 114
-      Script: {instanceID: 12764}
+      Script: {instanceID: 9440}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 9442}
     - Class: 114
-      Script: {instanceID: 14130}
+      Script: {instanceID: 9916}
+    - Class: 114
+      Script: {instanceID: 9952}
+    - Class: 114
+      Script: {instanceID: 10076}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -168,6 +169,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 211a309ddbd0a03f86429273b5ffd0bf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainSceneManager
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -566,6 +573,12 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FadeSample
+  - hash:
+      serializedVersion: 2
       Hash: f08a111e17bb701f9c9ec57bb78d9920
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -644,10 +657,28 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
+      Hash: 704dcd31abc789439bc3f3cd10b58c2b
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenComponent
+  - hash:
+      serializedVersion: 2
+      Hash: 9a65634b0f2713c6c2d2dd4d09159a88
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenSettings
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 11a7fcf5335e8c4857ac112ae0f5347e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FadeManager
   - hash:
       serializedVersion: 2
       Hash: 3f8d7b92a6be3c715e55d5cfa7cc8384
@@ -672,6 +703,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ToCollectionSceneButtonManager
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BackButtonManager
   - hash:
       serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
@@ -780,42 +823,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FadeSample
-  - hash:
-      serializedVersion: 2
-      Hash: 11a7fcf5335e8c4857ac112ae0f5347e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FadeManager
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BackButtonManager
-  - hash:
-      serializedVersion: 2
-      Hash: 0afff4a3ad6c89d264d284e7200f9fb6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MainSceneManager
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ToCollectionSceneButtonManager
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MainButtonManager
   platform: 9
   scenePathNames:
   - Assets/Scenes/MainScene.unity

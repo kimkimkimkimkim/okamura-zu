@@ -59,11 +59,15 @@ public class CollectionSceneManager : MonoBehaviour
         int _possessedPoint = SaveData.GetInt(SaveDataKeys.possessedPoint);
         string _lastDateTime = SaveData.GetString(SaveDataKeys.lastDateTime,DateTime.UtcNow.ToBinary().ToString());
         long binary = Convert.ToInt64(_lastDateTime);
+        int _acquirePoint = SaveData.GetInt(SaveDataKeys.itemUnitPrice,InitialValues.ITEM_UNITE_PRICE);
+        float _respawnTime = SaveData.GetFloat(SaveDataKeys.itemGenerationSpeed,InitialValues.ITEM_GENERATION_SPEED);
 
         maxItemCount = _maxItemCount;
         currentItemCount = _nowItemCount;
         possessedPoint = _possessedPoint;
         lastDateTime = DateTime.FromBinary(binary);
+        acquiredPoint = _acquirePoint;
+        respawnTime = _respawnTime;
     }
 
     //ポイントテキストの更新
