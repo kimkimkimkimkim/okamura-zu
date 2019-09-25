@@ -10,6 +10,10 @@ public class MainSceneManager : MonoBehaviour
     public GameObject namakemonoPrefab; //ナマケモノプレハブ
     public GameObject txtPossessedPoint; //所持ポイントテキスト
     public GameObject canvasGame; //ゲームキャンバス
+    public GameObject txtItemGenerationSpeed; //生成速度テキスト
+    public GameObject txtItemUnitPrice; //アイテム単価
+    public GameObject txtMaxItemCount; //アイテム最大数
+    public GameObject txtItemNumberOfGenerationOnClick; //タップあたりの生成数
 
     //変数宣言
     public int possessedPoint = 0; //所持ポイント
@@ -71,10 +75,22 @@ public class MainSceneManager : MonoBehaviour
         itemNumberOfGenerationOnClick(10)   :0.001
          */
         int p = Random.Range(0,100); //0~99の整数
-        if(p < 80){
-
-        }else if(p < 85){
-
+        if(p < 60){
+            LevelUp_ItemUnitPrice(1);
+        }else if(p < 75){
+            LevelUp_MaxItemCount(1);
+        }else if(p < 75){
+            LevelUp_ItemGenerationSpeed(0.1f);
+        }else if(p < 75){
+            LevelUp_ItemUnitPrice(10);
+        }else if(p < 75){
+            LevelUp_MaxItemCount(5);
+        }else if(p < 75){
+            LevelUp_ItemGenerationSpeed(0.3f);
+        }else if(p < 75){
+            LevelUp_ItemNumberOfGenerationOnClick(1);
+        }else if(p < 75){
+            LevelUp_ItemNumberOfGenerationOnClick(10);
         }
 
         CreateNamakemono();
@@ -112,6 +128,10 @@ public class MainSceneManager : MonoBehaviour
         value -= variation;
         SaveData.SetFloat(SaveDataKeys.itemGenerationSpeed,value);
         SaveData.Save();
+    }
+
+    private void UpdateItemGenerationSpeedText(){
+
     }
 
     //アイテムの単価
