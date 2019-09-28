@@ -21,6 +21,8 @@ public class CollectionSceneManager : MonoBehaviour
 
     private int currentItemCount = 0; //現在のアイテム数
     private DateTime lastDateTime; //前回アイテムを生成した時間
+    //itiou
+    
 
     void Start(){
         lastDateTime = DateTime.UtcNow;
