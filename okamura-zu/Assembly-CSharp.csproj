@@ -66,6 +66,7 @@
      <Compile Include="Assets\naichilab\FadeManager\Scripts\FadeManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\BackButtonManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\CollectionSceneManager.cs" />
+     <Compile Include="Assets\Scripts\CollectionScene\CreateNewItemOnClickManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\ItemManager.cs" />
      <Compile Include="Assets\Scripts\Common\InitialValues.cs" />
      <Compile Include="Assets\Scripts\Common\SaveData.cs" />
