@@ -117,8 +117,8 @@ public class MainSceneManager : MonoBehaviour
 
         
         Vector3 targetPos = new Vector3(
-            UnityEngine.Random.Range(-400.0f, 400.0f),
-            UnityEngine.Random.Range(0f, -500.0f),
+            UnityEngine.Random.Range(-450.0f, 450.0f),
+            UnityEngine.Random.Range(300f, -600.0f),
             0f
         );
         namakemono.transform.DOLocalMove(
