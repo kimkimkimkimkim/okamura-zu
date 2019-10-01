@@ -14,6 +14,7 @@ public class MainSceneManager : MonoBehaviour
     public GameObject txtItemUnitPrice; //アイテム単価
     public GameObject txtMaxItemCount; //アイテム最大数
     public GameObject txtItemNumberOfGenerationOnClick; //タップあたりの生成数
+    public GameObject namakemonoArea; //ナマケモノを生成するところ
 
     //変数宣言
     public int possessedPoint = 0; //所持ポイント
@@ -111,7 +112,7 @@ public class MainSceneManager : MonoBehaviour
     //ナマケモノを生成
     private void CreateNamakemono(){
         GameObject namakemono = (GameObject)Instantiate(namakemonoPrefab);
-        namakemono.transform.SetParent(canvasGame.transform);
+        namakemono.transform.SetParent(namakemonoArea.transform);
         namakemono.transform.localPosition = new Vector3(0,-600,0);
         namakemono.transform.localScale = new Vector3(scaleNamakemono,scaleNamakemono,1);
 

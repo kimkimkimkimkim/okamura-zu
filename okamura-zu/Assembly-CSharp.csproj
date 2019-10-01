@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\CollectionScene\CreateNewItemOnClickManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\ItemManager.cs" />
      <Compile Include="Assets\Scripts\Common\InitialValues.cs" />
+     <Compile Include="Assets\Scripts\Common\NavigationManager.cs" />
      <Compile Include="Assets\Scripts\Common\SaveData.cs" />
      <Compile Include="Assets\Scripts\Common\SaveDataKeys.cs" />
      <Compile Include="Assets\Scripts\MainScene\MainSceneManager.cs" />
