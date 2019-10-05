@@ -16,7 +16,9 @@ public class NavigationManager : MonoBehaviour
     private float time_tap = 0; //タップしている時間
     private float time_criterion = 0.5f; //タップかどうかの基準時間
     private bool isTap = false; //画面に触れているかどうか
-    private int index = 0;
+    [System.NonSerialized]
+    public int index = 0;
+    private float time_navigation = 0.5f; //画面遷移移動時間
 
     void Update(){
         Flick();
@@ -105,17 +107,17 @@ public class NavigationManager : MonoBehaviour
     public void MoveLeft(){
         if(index==-1)return;
         index--;
-        background.transform.DOLocalMoveX(background.transform.localPosition.x + 370,1,false);
-        mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x + 1125,1,false);
-        collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x + 1125,1,false);
+        background.transform.DOLocalMoveX(background.transform.localPosition.x + 370,time_navigation,false);
+        mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x + 1125,time_navigation,false);
+        collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x + 1125,time_navigation,false);
     }
 
     public void MoveRight(){
         if(index==1)return;
         index++;
-        background.transform.DOLocalMoveX(background.transform.localPosition.x - 370,1,false);
-        mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x - 1125,1,false);
-        collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x - 1125,1,false);
+        background.transform.DOLocalMoveX(background.transform.localPosition.x - 370,time_navigation,false);
+        mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x - 1125,time_navigation,false);
+        collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x - 1125,time_navigation,false);
     }
 
 }

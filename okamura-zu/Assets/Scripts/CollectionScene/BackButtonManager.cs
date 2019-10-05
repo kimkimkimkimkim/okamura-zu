@@ -11,7 +11,7 @@ public class BackButtonManager : MonoBehaviour
         collectionSceneManager = GameObject.Find("CollectionScreenManager");
     }
     public void OnClick(){
-        collectionSceneManager.GetComponent<CollectionSceneManager>().UpdateItemCountText();
+        //collectionSceneManager.GetComponent<CollectionSceneManager>().UpdateItemCountText();
         FadeManager.Instance.LoadScene ("MainScene", 0.2f);
     }
 }

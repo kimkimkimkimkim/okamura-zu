@@ -7,11 +7,7 @@ public class CreateNewItemOnClickManager : MonoBehaviour
     private const float clickTime = 0.5f; //クリックと判定する時間
     private bool isPointerDown = false; //タップしているかどうか
     private float time = 0; //タップしている時間
-    private GameObject collectionScreenManager;
-
-    private void Start(){
-        collectionScreenManager = GameObject.Find("CollectionScreenManager");
-    }
+    public GameObject dataManager;
 
     private void FixedUpdate(){
         if(!isPointerDown) return;
@@ -29,6 +25,6 @@ public class CreateNewItemOnClickManager : MonoBehaviour
             return;
         }
         //クリックと判定したのでアイテム生成
-        collectionScreenManager.GetComponent<CollectionSceneManager>().CreateNewItemOnClick();
+        dataManager.GetComponent<DataManager>().CreateNewItemOnClick();
     }
 }

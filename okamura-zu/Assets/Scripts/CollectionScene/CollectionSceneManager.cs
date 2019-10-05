@@ -7,6 +7,27 @@ using System;
 public class CollectionSceneManager : MonoBehaviour
 {   
     //オブジェクト参照
+    public GameObject navigationManager;
+    public GameObject kamisama;
+    public List<Sprite> img_kamisama;
+
+    //変数宣言
+    private float time = 0;
+    private float time_switch = 0.5f;
+
+    private void FixedUpdate(){
+        if(navigationManager.GetComponent<NavigationManager>().index != -1)return;
+        //コレクション画面が表示されていれば神様をアニメーション
+        time += Time.deltaTime;
+        if(time % (time_switch * 2) <= time_switch ){
+            kamisama.GetComponent<Image>().sprite = img_kamisama[0];
+        }else{
+            kamisama.GetComponent<Image>().sprite = img_kamisama[1];
+        }
+    }   
+
+    /* 
+    //オブジェクト参照
     public GameObject itemPrefab;
     public GameObject canvasGame;
     public GameObject txtPoint;
@@ -21,15 +42,6 @@ public class CollectionSceneManager : MonoBehaviour
 
     private int currentItemCount = 0; //現在のアイテム数
     private DateTime lastDateTime; //前回アイテムを生成した時間
-
-
-    void Start(){
-        lastDateTime = DateTime.UtcNow;
-        GetSaveDate();
-        InitialItemCreate();
-        UpdatePointText();
-        UpdateItemCountText();
-    }
 
     // Update is called once per frame
     void Update(){
@@ -50,24 +62,6 @@ public class CollectionSceneManager : MonoBehaviour
         for(int i=0;i<currentItemCount;i++){
             CreateItem();
         }
-    }
-
-    //セーブデータを取得
-    private void GetSaveDate(){
-        int _maxItemCount = SaveData.GetInt(SaveDataKeys.maxItemCount,10);
-        int _nowItemCount = SaveData.GetInt(SaveDataKeys.nowItemCount);
-        int _possessedPoint = SaveData.GetInt(SaveDataKeys.possessedPoint);
-        string _lastDateTime = SaveData.GetString(SaveDataKeys.lastDateTime,DateTime.UtcNow.ToBinary().ToString());
-        long binary = Convert.ToInt64(_lastDateTime);
-        int _acquirePoint = SaveData.GetInt(SaveDataKeys.itemUnitPrice,InitialValues.ITEM_UNITE_PRICE);
-        float _respawnTime = SaveData.GetFloat(SaveDataKeys.itemGenerationSpeed,InitialValues.ITEM_GENERATION_SPEED);
-
-        maxItemCount = _maxItemCount;
-        currentItemCount = _nowItemCount;
-        possessedPoint = _possessedPoint;
-        lastDateTime = DateTime.FromBinary(binary);
-        acquiredPoint = _acquirePoint;
-        respawnTime = _respawnTime;
     }
 
     //ポイントテキストの更新
@@ -130,5 +124,5 @@ public class CollectionSceneManager : MonoBehaviour
         possessedPoint += acquiredPoint;
         UpdatePointText();
         UpdateItemCountText();
-    }
+    }*/
 }

@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {   
-    private GameObject collectionScreenManager;
+    private GameObject dataManager;
 
     void Start(){
-        collectionScreenManager = GameObject.Find("CollectionScreenManager");
+        dataManager = GameObject.Find("DataManager");
     }
 
     public void TouchItem(){
         if(Input.GetMouseButton(0) == false) return;
 
-        collectionScreenManager.GetComponent<CollectionSceneManager>().GetItem();
+        dataManager.GetComponent<DataManager>().GetItem();
         Destroy(this.gameObject);
     }
 
     public void ClickItem(){
-        collectionScreenManager.GetComponent<CollectionSceneManager>().GetItem();
+        dataManager.GetComponent<DataManager>().GetItem();
         Destroy(this.gameObject);
     }
 }
