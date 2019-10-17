@@ -20,8 +20,6 @@ public class DataManager : MonoBehaviour
     [System.NonSerialized]
     public int possessedPoint = 0; //所持ポイント
     [System.NonSerialized]
-    public int acquiredPoint = 1; //獲得ポイント
-    [System.NonSerialized]
     public int maxItemCount = 10; //アイテムの最大数
     [System.NonSerialized]
     public float respawnTime = 5; //アイテムが発生する秒数
@@ -77,7 +75,6 @@ public class DataManager : MonoBehaviour
         int _possessedPoint = SaveData.GetInt(SaveDataKeys.possessedPoint);
         string _lastDateTime = SaveData.GetString(SaveDataKeys.lastDateTime,DateTime.UtcNow.ToBinary().ToString());
         long binary = Convert.ToInt64(_lastDateTime);
-        int _acquirePoint = SaveData.GetInt(SaveDataKeys.itemUnitPrice,InitialValues.ITEM_UNITE_PRICE);
         float _respawnTime = SaveData.GetFloat(SaveDataKeys.itemGenerationSpeed,InitialValues.ITEM_GENERATION_SPEED);
         float _itemGenerationSpeed = SaveData.GetFloat(SaveDataKeys.itemGenerationSpeed,InitialValues.ITEM_GENERATION_SPEED);
         int _itemUnitPrice = SaveData.GetInt(SaveDataKeys.itemUnitPrice,InitialValues.ITEM_UNITE_PRICE);
@@ -87,7 +84,6 @@ public class DataManager : MonoBehaviour
         currentItemCount = _nowItemCount;
         possessedPoint = _possessedPoint;
         lastDateTime = DateTime.FromBinary(binary);
-        acquiredPoint = _acquirePoint;
         respawnTime = _respawnTime;
         itemGenerationSpeed = _itemGenerationSpeed;
         itemUnitPrice = _itemUnitPrice;
@@ -242,7 +238,7 @@ public class DataManager : MonoBehaviour
     //アイテム入手
     public void GetItem(){
         currentItemCount--;
-        possessedPoint += acquiredPoint;
+        possessedPoint += itemUnitPrice;
         UpdatePointText();
         UpdateItemCountText();
     }

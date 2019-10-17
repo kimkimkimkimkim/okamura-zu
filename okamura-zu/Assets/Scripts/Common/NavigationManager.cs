@@ -107,7 +107,7 @@ public class NavigationManager : MonoBehaviour
     public void MoveLeft(){
         if(index==-1)return;
         index--;
-        background.transform.DOLocalMoveX(background.transform.localPosition.x + 370,time_navigation,false);
+        background.transform.DOLocalMoveX(background.transform.localPosition.x + 1125,time_navigation,false);
         mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x + 1125,time_navigation,false);
         collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x + 1125,time_navigation,false);
     }
@@ -115,7 +115,7 @@ public class NavigationManager : MonoBehaviour
     public void MoveRight(){
         if(index==1)return;
         index++;
-        background.transform.DOLocalMoveX(background.transform.localPosition.x - 370,time_navigation,false);
+        background.transform.DOLocalMoveX(background.transform.localPosition.x - 1125,time_navigation,false);
         mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x - 1125,time_navigation,false);
         collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x - 1125,time_navigation,false);
     }

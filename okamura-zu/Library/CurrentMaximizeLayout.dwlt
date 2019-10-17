@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 444}
   m_MaxSize: {x: 22006, y: 10022}
   vertical: 1
-  controlID: 11115
+  controlID: 96
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 444}
   m_MaxSize: {x: 22006, y: 10022}
   vertical: 0
-  controlID: 11116
+  controlID: 97
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 444}
   m_MaxSize: {x: 4002, y: 8044}
   vertical: 1
-  controlID: 11117
+  controlID: 98
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -222,9 +222,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.07028955, y: 0.9866028, z: -6.6510596}
+    m_Target: {x: -0.6636908, y: 3.3247738, z: -11.776498}
     speed: 2
-    m_Value: {x: -0.07028955, y: 0.9866028, z: -6.6510596}
+    m_Value: {x: -0.6636908, y: 3.3247738, z: -11.776498}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -257,9 +257,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 14.772055
+    m_Target: 22.002123
     speed: 2
-    m_Value: 14.772055
+    m_Value: 22.002123
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -481,9 +481,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a4500000
-      m_LastClickedID: 20644
-      m_ExpandedIDs: acc8ffffc6caffffdaf5ffff24f6ffff74fbffffce2b0000e22b0000622c0000183000002c3000000a3100005e5000006650000090500000aa50000096510000
+      m_SelectedIDs: 10290000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 74fbffff042c0000f22c00008e2d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -571,20 +571,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/Common
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/Common
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7e2b0000
-    m_LastClickedID: 11134
-    m_ExpandedIDs: 000000002e290000b0290000d62900003e2a0000
+    m_SelectedIDs: 482b0000
+    m_LastClickedID: 11080
+    m_ExpandedIDs: 0000000032290000b4290000da290000462a0000582b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -612,7 +612,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e290000b0290000d62900003e2a0000
+    m_ExpandedIDs: 0000000032290000b4290000da290000462a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -637,8 +637,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a4500000
-    m_LastClickedInstanceID: 20644
+    m_SelectedInstanceIDs: 10290000
+    m_LastClickedInstanceID: 10512
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: dc2c0000484c0000d63b0000000000008c3f0000283c00004835000036350000163200005e3a0000ae440000ea360000d42a00009a430000323a0000be42000038470000802f0000
     m_RenameOverlay:

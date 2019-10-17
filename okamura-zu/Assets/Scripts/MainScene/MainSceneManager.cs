@@ -23,6 +23,7 @@ public class MainSceneManager : MonoBehaviour
     //メインボタンクリック
     public void OnClickMainButton(){
         
+        return;
         int gachaCost = SaveData.GetInt(SaveDataKeys.gachaCost,InitialValues.GACHA_COST);
         if(dataManager.GetComponent<DataManager>().possessedPoint < gachaCost){
             //所持金が足りない
@@ -48,7 +49,7 @@ public class MainSceneManager : MonoBehaviour
         itemGenerationSpeed(0.3)            :4.949 
         itemNumberOfGenerationOnClick(1)    :0.05
         itemNumberOfGenerationOnClick(10)   :0.001
-         */
+        */
         float p = Random.Range(0f,100f); 
         if(p < 60){
             dataManager.GetComponent<DataManager>().LevelUp_ItemUnitPrice(1);
