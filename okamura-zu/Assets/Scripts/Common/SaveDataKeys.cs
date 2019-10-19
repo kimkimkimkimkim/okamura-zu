@@ -12,5 +12,6 @@ public class SaveDataKeys{
     static public string itemGenerationSpeed = "itemGenerationSpeed"; //アイテム生成スピード
     static public string itemUnitPrice = "itemUnitPrice"; //アイテム単価
     static public string itemNumberOfGenerationOnClick = "itemNumberOfGenerationOnClick"; //アイテムのタップ時生成数
+    static public string appleData = "appleData"; //りんごデータ
 }
 

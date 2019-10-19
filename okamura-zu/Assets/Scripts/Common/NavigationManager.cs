@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class NavigationManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class NavigationManager : MonoBehaviour
     [System.NonSerialized]
     public int index = 0;
     private float time_navigation = 0.5f; //画面遷移移動時間
+    private bool canMove = true; //画面遷移できるかどうか
 
     void Update(){
         Flick();
@@ -106,18 +108,38 @@ public class NavigationManager : MonoBehaviour
 
     public void MoveLeft(){
         if(index==-1)return;
+        if(!canMove)return;
+        //遷移スタート
+        canMove = false;
         index--;
         background.transform.DOLocalMoveX(background.transform.localPosition.x + 1125,time_navigation,false);
         mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x + 1125,time_navigation,false);
         collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x + 1125,time_navigation,false);
+        StartCoroutine(DelayMethod(time_navigation + 0.1f, () => { canMove = true; }));
     }
 
     public void MoveRight(){
         if(index==1)return;
+        if(!canMove)return;
+        //遷移スタート
+        canMove = false;
         index++;
         background.transform.DOLocalMoveX(background.transform.localPosition.x - 1125,time_navigation,false);
         mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x - 1125,time_navigation,false);
         collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x - 1125,time_navigation,false);
+        StartCoroutine(DelayMethod(time_navigation + 0.1f, () => { canMove = true; }));
+    }
+
+    /// <summary>
+    /// 渡された処理を指定時間後に実行する
+    /// </summary>
+    /// <param name="waitTime">遅延時間[ミリ秒]</param>
+    /// <param name="action">実行したい処理</param>
+    /// <returns></returns>
+    private IEnumerator DelayMethod(float waitTime, Action action)
+    {
+        yield return new WaitForSeconds(waitTime);
+        action();
     }
 
 }

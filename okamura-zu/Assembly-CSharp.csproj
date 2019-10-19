@@ -64,6 +64,8 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\naichilab\FadeManager\Sample\FadeSample.cs" />
      <Compile Include="Assets\naichilab\FadeManager\Scripts\FadeManager.cs" />
+     <Compile Include="Assets\Scripts\CollectionScene\AppleData.cs" />
+     <Compile Include="Assets\Scripts\CollectionScene\AppleManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\BackButtonManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\CollectionSceneManager.cs" />
      <Compile Include="Assets\Scripts\CollectionScene\CreateNewItemOnClickManager.cs" />

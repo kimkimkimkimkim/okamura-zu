@@ -22,7 +22,8 @@ public class SaveData
 		get {
 			if (savedatabase == null) {
 				string path = Application.persistentDataPath + "/";
-				string fileName = Application.companyName + "." + Application.productName + ".savedata.json";
+				//string fileName = Application.companyName + "." + Application.productName + ".savedata.json";
+				string fileName = "SaveData.json";
 				savedatabase = new SaveDataBase (path, fileName);
 			}
 			return savedatabase;
