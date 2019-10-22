@@ -7,33 +7,29 @@ public class AppleManager : MonoBehaviour
 {      
     //変数宣言
     public int index; //何番目のりんごか 1~
-    private DateTime createDateTime; //作成された日時
-    private int remainingTime; //実るまでに必要な時間（秒）
     private bool canHarvest = false; //収穫可能かどうか
     private float finalScale = 0.15f; //最終的なスケール
+    private AppleData appleData; //アップルデータ
 
     void Start(){
-        createDateTime = DateTime.UtcNow;
-        remainingTime = 30;
-
-        SaveData.GetClass<AppleData>(SaveDataKeys.appleData + index.ToString(),new AppleData());
-
-        //AppleData appleData = new AppleData(DateTime.UtcNow,30);
-        
+        appleData = SaveData.GetClass<AppleData>(SaveDataKeys.appleData + index.ToString(),new AppleData());
+        SaveData.SetClass<AppleData>(SaveDataKeys.appleData + index.ToString(),appleData);
+        SaveData.Save();
     }
 
     void Update(){
-        TimeSpan timeSpan = DateTime.UtcNow - createDateTime; //作成された日時と現在の時間の差
+        TimeSpan timeSpan = DateTime.UtcNow - appleData.GetCreateDateTime(); //作成された日時と現在の時間の差
 
-        if(timeSpan.Seconds >= remainingTime){
+        if(timeSpan.TotalSeconds >= appleData.remainingTime){
             //収穫可能
             canHarvest = true;
         }else{
             //まだ収穫できない
             //スケール変更
-            float scale = finalScale * ( (float)timeSpan.Seconds / (float)remainingTime );
+            float scale = finalScale * ( (int)timeSpan.TotalSeconds / (float)appleData.remainingTime );
             this.GetComponent<RectTransform>().localScale = new Vector3(scale,scale,1);
         }
+        
     }
 
     //クリックした状態で触れたらタッチ判定
@@ -55,10 +51,12 @@ public class AppleManager : MonoBehaviour
     }
 
     private void Harvest(){
-        createDateTime = DateTime.UtcNow;
-        canHarvest = false;
+        //新しいりんごの生成
+        appleData = new AppleData();
+        SaveData.SetClass<AppleData>(SaveDataKeys.appleData + index.ToString(),appleData);
+        SaveData.Save();
 
-        Debug.Log("収穫！！");
+        canHarvest = false;
     }
 
 }

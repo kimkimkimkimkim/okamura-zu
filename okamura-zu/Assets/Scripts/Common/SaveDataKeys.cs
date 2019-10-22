@@ -13,5 +13,7 @@ public class SaveDataKeys{
     static public string itemUnitPrice = "itemUnitPrice"; //アイテム単価
     static public string itemNumberOfGenerationOnClick = "itemNumberOfGenerationOnClick"; //アイテムのタップ時生成数
     static public string appleData = "appleData"; //りんごデータ
+    static public string playerAttackPower = "playerAttackPower"; //プレイヤーの攻撃力
+    static public string maxStageNum = "maxStageNum"; //ステージの最高到達点 (ex: "1-1-2")
 }
 

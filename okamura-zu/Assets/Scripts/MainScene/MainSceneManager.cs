@@ -5,100 +5,101 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 public class MainSceneManager : MonoBehaviour
-{
+{    
     //オブジェクト参照
-    public GameObject namakemonoPrefab; //ナマケモノプレハブ
-    public GameObject txtPossessedPoint; //所持ポイントテキスト
-    public GameObject canvasGame; //ゲームキャンバス
-    public GameObject txtItemGenerationSpeed; //生成速度テキスト
-    public GameObject txtItemUnitPrice; //アイテム単価
-    public GameObject txtMaxItemCount; //アイテム最大数
-    public GameObject txtItemNumberOfGenerationOnClick; //タップあたりの生成数
-    public GameObject namakemonoArea; //ナマケモノを生成するところ
-    public GameObject dataManager; //データマネージャー
+    public GameObject slider_enemyHp;
+    public GameObject txt_enemyHp;
+    public GameObject txt_stageName;
+    public GameObject txt_stageFraction; //ステージの分数のところ
+    public GameObject img_enemy; //敵画像
+    public GameObject damageTextPrefab;
 
     //変数宣言
-    private float scaleNamakemono = 0.2f; //ナマケモノのスケール
+    [System.NonSerialized]
+    public int playerAttackPower; //プレイヤーの攻撃力
+    [System.NonSerialized]
+    public int enemyHp; //敵のHP
+    private string nowStageNum; //現在のステージ
 
-    //メインボタンクリック
-    public void OnClickMainButton(){
-        
-        return;
-        int gachaCost = SaveData.GetInt(SaveDataKeys.gachaCost,InitialValues.GACHA_COST);
-        if(dataManager.GetComponent<DataManager>().possessedPoint < gachaCost){
-            //所持金が足りない
-            return;
-        }
-
-        //所持金が足りてたらガチャを回す
-        dataManager.GetComponent<DataManager>().possessedPoint -= gachaCost;
-        dataManager.GetComponent<DataManager>().UpdatePointText();
-        
-        /*
-        ・アイテム生成スピード
-        ・アイテムの単価
-        ・アイテムの最大生成数
-        ・アイテムのタップ時生成数
-        */
-        /*
-        itemUnitPrice(1)                    :60 
-        itemMaxCount(1)                     :15  
-        itemGenerationSpeed(0.1)            :10 
-        itemUnitPrice(10)                   :7 
-        itemMaxCount(5)                     :3 
-        itemGenerationSpeed(0.3)            :4.949 
-        itemNumberOfGenerationOnClick(1)    :0.05
-        itemNumberOfGenerationOnClick(10)   :0.001
-        */
-        float p = Random.Range(0f,100f); 
-        if(p < 60){
-            dataManager.GetComponent<DataManager>().LevelUp_ItemUnitPrice(1);
-        }else if(p < 75){
-            dataManager.GetComponent<DataManager>().LevelUp_MaxItemCount(1);
-        }else if(p < 85){
-            dataManager.GetComponent<DataManager>().LevelUp_ItemGenerationSpeed(0.1f);
-        }else if(p < 93){
-            dataManager.GetComponent<DataManager>().LevelUp_ItemUnitPrice(10);
-        }else if(p < 95){
-            dataManager.GetComponent<DataManager>().LevelUp_MaxItemCount(5);
-        }else if(p < 99.949f){
-            dataManager.GetComponent<DataManager>().LevelUp_ItemGenerationSpeed(0.3f);
-        }else if(p < 99.999f){
-            dataManager.GetComponent<DataManager>().LevelUp_ItemNumberOfGenerationOnClick(1);
-        }else if(p <= 100){
-            dataManager.GetComponent<DataManager>().LevelUp_ItemNumberOfGenerationOnClick(10);
-        }
-
-        CreateNamakemono();
+    void Start(){
+        GetSaveData();
+        SetEnemy();
+        UpdateEnemyHp();
+        UpdateStage();
     }
 
-    //ナマケモノを生成
-    private void CreateNamakemono(){
-        GameObject namakemono = (GameObject)Instantiate(namakemonoPrefab);
-        namakemono.transform.SetParent(namakemonoArea.transform);
-        namakemono.transform.localPosition = new Vector3(0,-600,0);
-        namakemono.transform.localScale = new Vector3(scaleNamakemono,scaleNamakemono,1);
+    void GetSaveData(){
+        //セーブデータの取得
+        playerAttackPower = SaveData.GetInt(SaveDataKeys.playerAttackPower,InitialValues.PLAYER_ATTACK_POWER);
+        nowStageNum = SaveData.GetString(SaveDataKeys.maxStageNum,InitialValues.MAX_STAGE_NUM);
+    }
 
-        
-        Vector3 targetPos = new Vector3(
-            UnityEngine.Random.Range(-450.0f, 450.0f),
-            UnityEngine.Random.Range(300f, -600.0f),
-            0f
-        );
-        namakemono.transform.DOLocalMove(
-            targetPos,
+    void SetEnemy(){
+        enemyHp = Random.Range(8, 12 + 1);
+        if(nowStageNum.Split('-')[2]=="5")enemyHp=Random.Range(18, 22 + 1); //BOSS
+        slider_enemyHp.GetComponent<Slider>().maxValue = enemyHp; //スライダーの最大値
+    }
+
+    //味方から敵への攻撃
+    public void Attack(int attackPower){
+        if(attackPower == 0) attackPower = playerAttackPower; //タップでの攻撃
+
+        enemyHp = (enemyHp <= attackPower)? 0 : enemyHp-attackPower;
+        UpdateEnemyHp();
+        DamageEffect(attackPower);
+    }
+
+    private void DamageEffect(int attack){
+        GameObject damageText = (GameObject)Instantiate(damageTextPrefab);
+        damageText.transform.SetParent(img_enemy.transform);
+        damageText.transform.localPosition = new Vector3(0,0,0);
+        damageText.transform.localScale = new Vector3(1,1,1);
+        damageText.GetComponent<Text>().text = attack.ToString();
+
+        //移動
+        damageText.transform.DOLocalMove(
+            new Vector3(0,220,0),
             1
         );
+        //フェードアウト
+        DOTween.ToAlpha(
+            ()=>damageText.GetComponent<Text>().color,
+            color => damageText.GetComponent<Text>().color = color,
+            0f,
+            1f
+        ).OnComplete(()=>Destroy(damageText));
     }
 
-    
-/* 
-    //リセット
-    public void Reset(){
-        SaveData.Clear();
+    //敵のHPの更新
+    private void UpdateEnemyHp(){
+        slider_enemyHp.GetComponent<Slider>().value = enemyHp;
+        txt_enemyHp.GetComponent<Text>().text = "やる気 " + enemyHp + "%";
+
+        if(enemyHp == 0)NextStage();
+    }
+
+    private void NextStage(){
+        int area = int.Parse(nowStageNum.Split('-')[1]);
+        int stage = int.Parse(nowStageNum.Split('-')[2]);
+        if(stage==5){
+            nowStageNum = "1-"+(area+1).ToString()+"-1";
+        }else{
+            nowStageNum = "1-"+area.ToString()+"-"+(stage+1).ToString();
+        }
+
+        SaveData.SetString(SaveDataKeys.maxStageNum,nowStageNum);
         SaveData.Save();
 
-        Start();
+        SetEnemy();
+        UpdateEnemyHp();
+        UpdateStage();
     }
-    */
+
+    //ステージの更新
+    private void UpdateStage(){
+        string prefecture = "東京都";
+        txt_stageName.GetComponent<Text>().text = prefecture + " " + nowStageNum.Split('-')[1];
+        txt_stageFraction.GetComponent<Text>().text = (int.Parse(nowStageNum.Split('-')[2])-1) + "/4";
+        if(nowStageNum.Split('-')[2]=="5")txt_stageFraction.GetComponent<Text>().text = "BOSS";
+    }
 }

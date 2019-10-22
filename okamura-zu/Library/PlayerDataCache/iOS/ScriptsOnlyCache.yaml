@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AppleManager
     - BackButtonManager
     - CollectionSceneManager
     - CreateNewItemOnClickManager
@@ -27,6 +28,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Outline
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/MainScene.unity:
@@ -47,39 +50,45 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9350}
+      Script: {instanceID: 9272}
     - Class: 114
-      Script: {instanceID: 9384}
+      Script: {instanceID: 9352}
     - Class: 114
-      Script: {instanceID: 9390}
+      Script: {instanceID: 9386}
     - Class: 114
       Script: {instanceID: 9392}
     - Class: 114
-      Script: {instanceID: 9396}
+      Script: {instanceID: 9394}
     - Class: 114
-      Script: {instanceID: 9404}
+      Script: {instanceID: 9398}
+    - Class: 114
+      Script: {instanceID: 9406}
+    - Class: 114
+      Script: {instanceID: 9418}
     - Class: 114
       Script: {instanceID: 9440}
     - Class: 114
       Script: {instanceID: 9442}
     - Class: 114
-      Script: {instanceID: 9770}
+      Script: {instanceID: 9444}
     - Class: 114
-      Script: {instanceID: 9916}
+      Script: {instanceID: 9772}
     - Class: 114
-      Script: {instanceID: 9952}
+      Script: {instanceID: 9918}
     - Class: 114
-      Script: {instanceID: 10026}
+      Script: {instanceID: 9954}
     - Class: 114
-      Script: {instanceID: 10078}
+      Script: {instanceID: 10030}
     - Class: 114
-      Script: {instanceID: 10088}
+      Script: {instanceID: 10084}
     - Class: 114
-      Script: {instanceID: 10156}
+      Script: {instanceID: 10094}
     - Class: 114
-      Script: {instanceID: 10488}
+      Script: {instanceID: 10162}
     - Class: 114
-      Script: {instanceID: 10512}
+      Script: {instanceID: 10494}
+    - Class: 114
+      Script: {instanceID: 10518}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -95,6 +104,12 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: f450bd92c660880e07a6cb4e4f93cd6d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AppleManager
   - hash:
       serializedVersion: 2
       Hash: 984dcc0ba3707b7691fbdca8ff508d28
@@ -133,7 +148,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 4f86aca523f097e3e478cb3fac1497f8
+      Hash: 974a2e0546f59306d95e3eebfee82b9f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainSceneManager
@@ -809,6 +824,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 4f86aca523f097e3e478cb3fac1497f8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainSceneManager1
   platform: 9
   scenePathNames:
   - Assets/Scenes/MainScene.unity
