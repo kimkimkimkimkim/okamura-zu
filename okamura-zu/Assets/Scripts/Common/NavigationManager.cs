@@ -10,6 +10,7 @@ public class NavigationManager : MonoBehaviour
     public GameObject background;
     public GameObject mainView;
     public GameObject collectionView;
+    public GameObject gachaView;
 
     //変数宣言
     private Vector3 touchStartPos;
@@ -115,6 +116,7 @@ public class NavigationManager : MonoBehaviour
         background.transform.DOLocalMoveX(background.transform.localPosition.x + 1125,time_navigation,false);
         mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x + 1125,time_navigation,false);
         collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x + 1125,time_navigation,false);
+        gachaView.transform.DOLocalMoveX(gachaView.transform.localPosition.x + 1125,time_navigation,false);
         StartCoroutine(DelayMethod(time_navigation + 0.1f, () => { canMove = true; }));
     }
 
@@ -127,6 +129,7 @@ public class NavigationManager : MonoBehaviour
         background.transform.DOLocalMoveX(background.transform.localPosition.x - 1125,time_navigation,false);
         mainView.transform.DOLocalMoveX(mainView.transform.localPosition.x - 1125,time_navigation,false);
         collectionView.transform.DOLocalMoveX(collectionView.transform.localPosition.x - 1125,time_navigation,false);
+        gachaView.transform.DOLocalMoveX(gachaView.transform.localPosition.x - 1125,time_navigation,false);
         StartCoroutine(DelayMethod(time_navigation + 0.1f, () => { canMove = true; }));
     }
 

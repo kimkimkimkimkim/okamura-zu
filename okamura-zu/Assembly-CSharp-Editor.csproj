@@ -288,6 +288,21 @@
  <Reference Include="DOTweenEditor">
  <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI">
+ <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/NPOI.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OOXML">
+ <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/NPOI.OOXML.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OpenXml4Net">
+ <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
+ </Reference>
+ <Reference Include="NPOI.OpenXmlFormats">
+ <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -302,21 +317,6 @@
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
  <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
- </Reference>
- <Reference Include="NPOI.OOXML">
- <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/NPOI.OOXML.dll</HintPath>
- </Reference>
- <Reference Include="NPOI.OpenXmlFormats">
- <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
- </Reference>
- <Reference Include="NPOI.OpenXml4Net">
- <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
- </Reference>
- <Reference Include="ICSharpCode.SharpZipLib">
- <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/ICSharpCode.SharpZipLib.dll</HintPath>
- </Reference>
- <Reference Include="NPOI">
- <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Assets/Terasurware/Editor/npoi/NPOI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Hub/Editor/2019.1.10f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
