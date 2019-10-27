@@ -21,7 +21,8 @@ public class NavigationManager : MonoBehaviour
     [System.NonSerialized]
     public int index = 0;
     private float time_navigation = 0.5f; //画面遷移移動時間
-    private bool canMove = true; //画面遷移できるかどうか
+    [NonSerialized]
+    public bool canMove = true; //画面遷移できるかどうか
 
     void Update(){
         Flick();
