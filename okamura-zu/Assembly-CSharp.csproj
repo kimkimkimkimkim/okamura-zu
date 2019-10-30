@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\Common\SaveDataKeys.cs" />
      <Compile Include="Assets\Scripts\Common\TapEffect.cs" />
      <Compile Include="Assets\Scripts\GachaScene\GachaSceneManager.cs" />
+     <Compile Include="Assets\Scripts\MainScene\BossBattleTimer.cs" />
      <Compile Include="Assets\Scripts\MainScene\MainSceneManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\MainSceneManager1.cs" />
      <Compile Include="Assets\Scripts\MainScene\NavigationButton.cs" />
