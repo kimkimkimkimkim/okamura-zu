@@ -1,0 +1,291 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb282c7c875e424ead0ae9a8cfeb8aa, type: 3}
+  m_Name: BossExcelData
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: Tokyo
+    list:
+    - enemy_id: 1
+      hp: 10
+    - enemy_id: 2
+      hp: 11
+    - enemy_id: 3
+      hp: 12
+    - enemy_id: 4
+      hp: 13
+    - enemy_id: 5
+      hp: 14
+    - enemy_id: 6
+      hp: 15
+    - enemy_id: 7
+      hp: 16
+    - enemy_id: 8
+      hp: 17
+    - enemy_id: 9
+      hp: 18
+    - enemy_id: 10
+      hp: 19
+    - enemy_id: 11
+      hp: 20
+    - enemy_id: 12
+      hp: 21
+    - enemy_id: 13
+      hp: 22
+    - enemy_id: 14
+      hp: 23
+    - enemy_id: 15
+      hp: 24
+    - enemy_id: 16
+      hp: 25
+    - enemy_id: 17
+      hp: 26
+    - enemy_id: 1
+      hp: 27
+    - enemy_id: 2
+      hp: 28
+    - enemy_id: 3
+      hp: 29
+    - enemy_id: 4
+      hp: 30
+    - enemy_id: 5
+      hp: 31
+    - enemy_id: 6
+      hp: 32
+    - enemy_id: 7
+      hp: 33
+    - enemy_id: 8
+      hp: 34
+    - enemy_id: 9
+      hp: 35
+    - enemy_id: 10
+      hp: 36
+    - enemy_id: 11
+      hp: 37
+    - enemy_id: 12
+      hp: 38
+    - enemy_id: 13
+      hp: 39
+    - enemy_id: 14
+      hp: 40
+    - enemy_id: 15
+      hp: 41
+    - enemy_id: 16
+      hp: 42
+    - enemy_id: 17
+      hp: 43
+    - enemy_id: 1
+      hp: 44
+    - enemy_id: 2
+      hp: 45
+    - enemy_id: 3
+      hp: 46
+    - enemy_id: 4
+      hp: 47
+    - enemy_id: 5
+      hp: 48
+    - enemy_id: 6
+      hp: 49
+    - enemy_id: 7
+      hp: 50
+    - enemy_id: 8
+      hp: 51
+    - enemy_id: 9
+      hp: 52
+    - enemy_id: 10
+      hp: 53
+    - enemy_id: 11
+      hp: 54
+    - enemy_id: 12
+      hp: 55
+    - enemy_id: 13
+      hp: 56
+    - enemy_id: 14
+      hp: 57
+    - enemy_id: 15
+      hp: 58
+    - enemy_id: 16
+      hp: 59
+    - enemy_id: 17
+      hp: 60
+    - enemy_id: 1
+      hp: 61
+    - enemy_id: 2
+      hp: 62
+    - enemy_id: 3
+      hp: 63
+    - enemy_id: 4
+      hp: 64
+    - enemy_id: 5
+      hp: 65
+    - enemy_id: 6
+      hp: 66
+    - enemy_id: 7
+      hp: 67
+    - enemy_id: 8
+      hp: 68
+    - enemy_id: 9
+      hp: 69
+    - enemy_id: 10
+      hp: 70
+    - enemy_id: 11
+      hp: 71
+    - enemy_id: 12
+      hp: 72
+    - enemy_id: 13
+      hp: 73
+    - enemy_id: 14
+      hp: 74
+    - enemy_id: 15
+      hp: 75
+    - enemy_id: 16
+      hp: 76
+    - enemy_id: 17
+      hp: 77
+  - name: Hokkaido
+    list:
+    - enemy_id: 1
+      hp: 10
+    - enemy_id: 2
+      hp: 11
+    - enemy_id: 3
+      hp: 12
+    - enemy_id: 4
+      hp: 13
+    - enemy_id: 5
+      hp: 14
+    - enemy_id: 6
+      hp: 15
+    - enemy_id: 7
+      hp: 16
+    - enemy_id: 8
+      hp: 17
+    - enemy_id: 9
+      hp: 18
+    - enemy_id: 10
+      hp: 19
+    - enemy_id: 11
+      hp: 20
+    - enemy_id: 12
+      hp: 21
+    - enemy_id: 13
+      hp: 22
+    - enemy_id: 14
+      hp: 23
+    - enemy_id: 15
+      hp: 24
+    - enemy_id: 16
+      hp: 25
+    - enemy_id: 17
+      hp: 26
+    - enemy_id: 1
+      hp: 27
+    - enemy_id: 2
+      hp: 28
+    - enemy_id: 3
+      hp: 29
+    - enemy_id: 4
+      hp: 30
+    - enemy_id: 5
+      hp: 31
+    - enemy_id: 6
+      hp: 32
+    - enemy_id: 7
+      hp: 33
+    - enemy_id: 8
+      hp: 34
+    - enemy_id: 9
+      hp: 35
+    - enemy_id: 10
+      hp: 36
+    - enemy_id: 11
+      hp: 37
+    - enemy_id: 12
+      hp: 38
+    - enemy_id: 13
+      hp: 39
+    - enemy_id: 14
+      hp: 40
+    - enemy_id: 15
+      hp: 41
+    - enemy_id: 16
+      hp: 42
+    - enemy_id: 17
+      hp: 43
+    - enemy_id: 1
+      hp: 44
+    - enemy_id: 2
+      hp: 45
+    - enemy_id: 3
+      hp: 46
+    - enemy_id: 4
+      hp: 47
+    - enemy_id: 5
+      hp: 48
+    - enemy_id: 6
+      hp: 49
+    - enemy_id: 7
+      hp: 50
+    - enemy_id: 8
+      hp: 51
+    - enemy_id: 9
+      hp: 52
+    - enemy_id: 10
+      hp: 53
+    - enemy_id: 11
+      hp: 54
+    - enemy_id: 12
+      hp: 55
+    - enemy_id: 13
+      hp: 56
+    - enemy_id: 14
+      hp: 57
+    - enemy_id: 15
+      hp: 58
+    - enemy_id: 16
+      hp: 59
+    - enemy_id: 17
+      hp: 60
+    - enemy_id: 1
+      hp: 61
+    - enemy_id: 2
+      hp: 62
+    - enemy_id: 3
+      hp: 63
+    - enemy_id: 4
+      hp: 64
+    - enemy_id: 5
+      hp: 65
+    - enemy_id: 6
+      hp: 66
+    - enemy_id: 7
+      hp: 67
+    - enemy_id: 8
+      hp: 68
+    - enemy_id: 9
+      hp: 69
+    - enemy_id: 10
+      hp: 70
+    - enemy_id: 11
+      hp: 71
+    - enemy_id: 12
+      hp: 72
+    - enemy_id: 13
+      hp: 73
+    - enemy_id: 14
+      hp: 74
+    - enemy_id: 15
+      hp: 75
+    - enemy_id: 16
+      hp: 76
+    - enemy_id: 17
+      hp: 77

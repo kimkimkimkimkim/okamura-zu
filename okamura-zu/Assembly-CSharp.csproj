@@ -79,10 +79,13 @@
      <Compile Include="Assets\Scripts\Common\TapEffect.cs" />
      <Compile Include="Assets\Scripts\GachaScene\GachaSceneManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\BossBattleTimer.cs" />
+     <Compile Include="Assets\Scripts\MainScene\EnemyDeathAnimation.cs" />
      <Compile Include="Assets\Scripts\MainScene\MainSceneManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\MainSceneManager1.cs" />
      <Compile Include="Assets\Scripts\MainScene\NavigationButton.cs" />
      <Compile Include="Assets\Scripts\MainScene\ToCollectionSceneButtonManager.cs" />
+     <Compile Include="Assets\Terasurware\Classes\BossData.cs" />
+     <Compile Include="Assets\Terasurware\Classes\EnemyData.cs" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Volumes/KESU/Document/GitHub/okamura-zu/okamura-zu/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

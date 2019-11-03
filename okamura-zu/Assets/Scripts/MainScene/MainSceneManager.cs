@@ -5,16 +5,23 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
 using UniRx.Triggers;
+using System;
 
 public class MainSceneManager : MonoBehaviour
-{    
+{  
+    //エクセルデータ
+    public BossData bossData;
+    public EnemyData enemyData;
+
     //オブジェクト参照
     public GameObject slider_enemyHp;
     public GameObject slider_time;
     public GameObject txt_enemyHp;
+    public GameObject txt_enemyName;
     public GameObject txt_stageName; //?-?-0,1,2,3,4(BOSS)
     public GameObject txt_stageFraction; //ステージの分数のところ
     public GameObject img_enemy; //敵画像
+    public GameObject enemyDeathAnimation;
     public GameObject damageTextPrefab;
     public GameObject btn_toBossBattle;
 
@@ -45,6 +52,7 @@ public class MainSceneManager : MonoBehaviour
     void InitialSetActive(){
         slider_time.SetActive(false);
         btn_toBossBattle.SetActive(false);
+        enemyDeathAnimation.SetActive(false);
     }
 
     void InitialSetObserver(){
@@ -60,13 +68,31 @@ public class MainSceneManager : MonoBehaviour
 
     //敵の初期設定
     void SetEnemy(){
-        enemyHp = Random.Range(8, 12 + 1);
-        slider_time.SetActive(false);
+        Sprite s;
+        int enemyId;
+        string enemyName;
+
         if(nowStageNum.Split('-')[2]=="5"){
-            enemyHp=Random.Range(18, 22 + 1); //BOSS
+            //BOSS
+            int prefectureNum = int.Parse(nowStageNum.Split('-')[0]);
+            int areaNum = int.Parse(nowStageNum.Split('-')[1]);
+            //int stage;
+
+            enemyId = bossData.sheets[prefectureNum-1].list[areaNum-1].enemy_id;
+            enemyHp = bossData.sheets[prefectureNum-1].list[areaNum-1].hp;
             slider_time.SetActive(true);
+            s = Resources.Load<Sprite>("Image/Enemy/" + enemyId.ToString());
+        }else{
+            //通常
+            enemyHp = UnityEngine.Random.Range(8, 12 + 1);
+            slider_time.SetActive(false);
+            enemyId = UnityEngine.Random.Range(1,18); //1~17の乱数(int)
+            s = Resources.Load<Sprite>("Image/Enemy/"+enemyId.ToString());
         }
         slider_enemyHp.GetComponent<Slider>().maxValue = enemyHp; //スライダーの最大値
+        img_enemy.GetComponent<Image>().sprite = s; //敵画像
+        enemyName = enemyData.sheets[0].list[enemyId-1].name; //名前
+        txt_enemyName.GetComponent<Text>().text = enemyName;
     }
 
     //ボス戦終了
@@ -82,7 +108,7 @@ public class MainSceneManager : MonoBehaviour
     }
 
     //味方から敵への攻撃
-    public void Attack(int attackPower){
+    public void Attack(int attackPower = 0){
         if(!canAttack) return;
         if(attackPower == 0) attackPower = playerAttackPower; //タップでの攻撃
 
@@ -117,10 +143,34 @@ public class MainSceneManager : MonoBehaviour
         slider_enemyHp.GetComponent<Slider>().value = enemyHp;
         txt_enemyHp.GetComponent<Text>().text = "やる気 " + enemyHp + "%";
 
-        if(enemyHp == 0)NextStage(1);
+        if(enemyHp == 0){
+            EnemyDefeatAnimation();
+            //NextStage(1);
+        }
     }
 
-    private void NextStage(int plus){
+    //敵撃破アニメーション
+    private void EnemyDefeatAnimation(){
+        canAttack = false;
+        //img_enemy.GetComponent<Image>().color = new Color(255,255,255,0.5f);
+        img_enemy.GetComponent<Image>()
+            .DOFade(0.5f,0.5f)
+            .SetEase(Ease.Linear);
+
+        slider_time.SetActive(false);
+        Observable.Return(Unit.Default)
+            .Delay(TimeSpan.FromMilliseconds(500))
+            .Subscribe(_ => {
+                enemyDeathAnimation.SetActive(true);
+                enemyDeathAnimation.GetComponent<Animator>().SetBool("isDefeat",true);
+            });
+    }
+
+    public void NextStage(int plus){
+        canAttack = true;
+        enemyDeathAnimation.SetActive(false);
+        img_enemy.GetComponent<Image>().color = new Color(255,255,255,1);
+
         if(!prepareBossBattle){
             //ボス戦準備中なら次のステージに行かない
             int area = int.Parse(nowStageNum.Split('-')[1]);
