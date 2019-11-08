@@ -78,7 +78,8 @@ public class MainSceneManager : MonoBehaviour
             int areaNum = int.Parse(nowStageNum.Split('-')[1]);
             //int stage;
 
-            enemyId = bossData.sheets[prefectureNum-1].list[areaNum-1].enemy_id;
+            //enemyId = bossData.sheets[prefectureNum-1].list[areaNum-1].enemy_id;
+            enemyId = 19;
             enemyHp = bossData.sheets[prefectureNum-1].list[areaNum-1].hp;
             slider_time.SetActive(true);
             s = Resources.Load<Sprite>("Image/Enemy/" + enemyId.ToString());
@@ -86,7 +87,8 @@ public class MainSceneManager : MonoBehaviour
             //通常
             enemyHp = UnityEngine.Random.Range(8, 12 + 1);
             slider_time.SetActive(false);
-            enemyId = UnityEngine.Random.Range(1,18); //1~17の乱数(int)
+            //enemyId = UnityEngine.Random.Range(1,18); //1~17の乱数(int)
+            enemyId = 18;
             s = Resources.Load<Sprite>("Image/Enemy/"+enemyId.ToString());
         }
         slider_enemyHp.GetComponent<Slider>().maxValue = enemyHp; //スライダーの最大値
@@ -159,7 +161,7 @@ public class MainSceneManager : MonoBehaviour
 
         slider_time.SetActive(false);
         Observable.Return(Unit.Default)
-            .Delay(TimeSpan.FromMilliseconds(500))
+            .Delay(TimeSpan.FromMilliseconds(300))
             .Subscribe(_ => {
                 enemyDeathAnimation.SetActive(true);
                 enemyDeathAnimation.GetComponent<Animator>().SetBool("isDefeat",true);

@@ -11,21 +11,29 @@ public class NavigationManager : MonoBehaviour
     public GameObject mainView;
     public GameObject collectionView;
     public GameObject gachaView;
+    public List<GameObject> views = new List<GameObject>(); 
 
     //変数宣言
+    private List<Vector3> initPos = new List<Vector3>();
     private Vector3 touchStartPos;
     private Vector3 touchEndPos;
     private float time_tap = 0; //タップしている時間
     private float time_criterion = 0.5f; //タップかどうかの基準時間
     private bool isTap = false; //画面に触れているかどうか
     [System.NonSerialized]
-    public int index = 0;
+    public int index = 0; // -1,0,1
     private float time_navigation = 0.5f; //画面遷移移動時間
     [NonSerialized]
     public bool canMove = true; //画面遷移できるかどうか
 
+    void Start(){
+        views.ForEach(view => {
+            initPos.Add(view.transform.localPosition);
+        });
+    }
+
     void Update(){
-        Flick();
+        //Flick();
     }
 
     void FixedUpdate(){
@@ -106,6 +114,19 @@ public class NavigationManager : MonoBehaviour
         default:
             break;
         }
+    }
+
+    public void ToMoveIndex(int ind){
+        if(ind == index)return;
+        if(!canMove)return;
+        //遷移スタート
+        canMove = false;
+        index = ind;
+        background.transform.DOLocalMoveX(initPos[1].x + MyConfig.screenWidth * (-index),time_navigation,false);
+        for(int i=0;i<views.Count;i++){
+            views[i].transform.DOLocalMoveX(initPos[i].x + MyConfig.screenWidth * (-index),time_navigation,false);
+        }
+        StartCoroutine(DelayMethod(time_navigation + 0.1f, () => { canMove = true; }));
     }
 
     public void MoveLeft(){

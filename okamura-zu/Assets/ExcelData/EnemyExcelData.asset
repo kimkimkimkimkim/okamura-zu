@@ -49,3 +49,7 @@ MonoBehaviour:
       name: "\u30A8\u30EA\u30FC\u30C8FBI"
     - id: 17
       name: "\u5DE5\u4E8B"
+    - id: 18
+      name: "\u5143\u6C17\u306A\u4F1A\u793E\u54E1"
+    - id: 19
+      name: "\u98A8\u90AA\u3092\u3072\u3044\u305F\u4F1A\u793E\u54E1"
