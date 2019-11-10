@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Common\TapEffect.cs" />
      <Compile Include="Assets\Scripts\GachaScene\GachaSceneManager.cs" />
      <Compile Include="Assets\Scripts\HeaderFooter\HeaderFooterManager.cs" />
+     <Compile Include="Assets\Scripts\MainScene\AllyManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\BossBattleTimer.cs" />
      <Compile Include="Assets\Scripts\MainScene\EnemyDeathAnimation.cs" />
      <Compile Include="Assets\Scripts\MainScene\MainSceneManager.cs" />
