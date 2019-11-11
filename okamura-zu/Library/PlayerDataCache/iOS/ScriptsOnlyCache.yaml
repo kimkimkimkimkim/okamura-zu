@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - CollectionSceneManager
     - CreateNewItemOnClickManager
     - DataManager
+    - DialogManager
     - EnemyData
     - EnemyDeathAnimation
     - FadeManager
@@ -92,43 +93,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9512}
     - Class: 114
-      Script: {instanceID: 9942}
+      Script: {instanceID: 9866}
     - Class: 114
-      Script: {instanceID: 9980}
+      Script: {instanceID: 9944}
     - Class: 114
-      Script: {instanceID: 10002}
+      Script: {instanceID: 9982}
     - Class: 114
-      Script: {instanceID: 10028}
+      Script: {instanceID: 10004}
     - Class: 114
-      Script: {instanceID: 10124}
+      Script: {instanceID: 10030}
     - Class: 114
-      Script: {instanceID: 10164}
+      Script: {instanceID: 10126}
     - Class: 114
-      Script: {instanceID: 10182}
+      Script: {instanceID: 10166}
     - Class: 114
-      Script: {instanceID: 10230}
+      Script: {instanceID: 10184}
     - Class: 114
-      Script: {instanceID: 10260}
+      Script: {instanceID: 10232}
     - Class: 114
-      Script: {instanceID: 10366}
+      Script: {instanceID: 10262}
     - Class: 114
-      Script: {instanceID: 10370}
+      Script: {instanceID: 10368}
     - Class: 114
-      Script: {instanceID: 10438}
+      Script: {instanceID: 10372}
     - Class: 114
-      Script: {instanceID: 10448}
+      Script: {instanceID: 10440}
     - Class: 114
-      Script: {instanceID: 10534}
+      Script: {instanceID: 10450}
     - Class: 114
-      Script: {instanceID: 10542}
+      Script: {instanceID: 10536}
     - Class: 114
-      Script: {instanceID: 10570}
+      Script: {instanceID: 10544}
     - Class: 114
-      Script: {instanceID: 10982}
+      Script: {instanceID: 10572}
     - Class: 114
-      Script: {instanceID: 11018}
+      Script: {instanceID: 10984}
     - Class: 114
-      Script: {instanceID: 19116}
+      Script: {instanceID: 11020}
+    - Class: 114
+      Script: {instanceID: 20730}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -228,7 +231,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 8e2ae95ca77d4256ec919cec06527a28
+      Hash: 44444669e84abe4fe5760609fc825078
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainSceneManager
@@ -694,6 +697,12 @@ ScriptsOnlyBuild:
     assemblyName: UniRx.dll
     namespaceName: UniRx.Triggers
     className: ObservableLateUpdateTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AllyManager
   - hash:
       serializedVersion: 2
       Hash: 303ad70ce203ad874efe2965d0fbcff9
@@ -1194,10 +1203,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 7ec686ed116795f016d870662233446a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: AllyManager
+    className: DialogManager
   platform: 9
   scenePathNames:
   - Assets/Scenes/MainScene.unity

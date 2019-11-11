@@ -14,6 +14,7 @@ public class MainSceneManager : MonoBehaviour
     public EnemyData enemyData;
 
     //オブジェクト参照
+    public GameObject dialogManager;
     public GameObject slider_enemyHp;
     public GameObject slider_time;
     public GameObject txt_enemyHp;
@@ -24,6 +25,7 @@ public class MainSceneManager : MonoBehaviour
     public GameObject enemyDeathAnimation;
     public GameObject damageTextPrefab;
     public GameObject btn_toBossBattle;
+    public GameObject btn_monsterOrganization; //モンスター編成ボタン
 
     //変数宣言
     [System.NonSerialized]
@@ -62,6 +64,12 @@ public class MainSceneManager : MonoBehaviour
                 prepareBossBattle = false;
                 btn_toBossBattle.SetActive(false);
                 NextStage(1);
+            });
+
+        btn_monsterOrganization.AddComponent<ObservableEventTrigger>()
+            .OnPointerClickAsObservable()
+            .Subscribe(_ => {
+                dialogManager.GetComponent<DialogManager>().OpenDialog();
             });
     }
 
