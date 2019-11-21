@@ -38,12 +38,16 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.Outline
+    - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/Scenes/MainScene.unity:
     - Class: 1
@@ -71,67 +75,75 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9286}
     - Class: 114
-      Script: {instanceID: 9414}
+      Script: {instanceID: 9292}
     - Class: 114
-      Script: {instanceID: 9454}
+      Script: {instanceID: 9416}
     - Class: 114
-      Script: {instanceID: 9460}
+      Script: {instanceID: 9456}
+    - Class: 114
+      Script: {instanceID: 9458}
     - Class: 114
       Script: {instanceID: 9462}
     - Class: 114
-      Script: {instanceID: 9466}
+      Script: {instanceID: 9464}
     - Class: 114
-      Script: {instanceID: 9470}
+      Script: {instanceID: 9468}
     - Class: 114
-      Script: {instanceID: 9474}
+      Script: {instanceID: 9472}
     - Class: 114
-      Script: {instanceID: 9486}
+      Script: {instanceID: 9476}
     - Class: 114
-      Script: {instanceID: 9508}
+      Script: {instanceID: 9484}
+    - Class: 114
+      Script: {instanceID: 9488}
+    - Class: 114
+      Script: {instanceID: 9504}
     - Class: 114
       Script: {instanceID: 9510}
     - Class: 114
       Script: {instanceID: 9512}
     - Class: 114
-      Script: {instanceID: 9866}
+      Script: {instanceID: 9514}
     - Class: 114
-      Script: {instanceID: 9944}
+      Script: {instanceID: 9524}
     - Class: 114
-      Script: {instanceID: 9982}
+      Script: {instanceID: 9868}
     - Class: 114
-      Script: {instanceID: 10004}
+      Script: {instanceID: 9946}
     - Class: 114
-      Script: {instanceID: 10030}
+      Script: {instanceID: 9984}
     - Class: 114
-      Script: {instanceID: 10126}
+      Script: {instanceID: 10006}
     - Class: 114
-      Script: {instanceID: 10166}
+      Script: {instanceID: 10032}
     - Class: 114
-      Script: {instanceID: 10184}
+      Script: {instanceID: 10128}
     - Class: 114
-      Script: {instanceID: 10232}
+      Script: {instanceID: 10168}
     - Class: 114
-      Script: {instanceID: 10262}
+      Script: {instanceID: 10186}
     - Class: 114
-      Script: {instanceID: 10368}
+      Script: {instanceID: 10234}
     - Class: 114
-      Script: {instanceID: 10372}
+      Script: {instanceID: 10264}
     - Class: 114
-      Script: {instanceID: 10440}
+      Script: {instanceID: 10370}
     - Class: 114
-      Script: {instanceID: 10450}
+      Script: {instanceID: 10374}
     - Class: 114
-      Script: {instanceID: 10536}
+      Script: {instanceID: 10442}
     - Class: 114
-      Script: {instanceID: 10544}
+      Script: {instanceID: 10452}
     - Class: 114
-      Script: {instanceID: 10572}
+      Script: {instanceID: 10538}
     - Class: 114
-      Script: {instanceID: 10984}
+      Script: {instanceID: 10546}
     - Class: 114
-      Script: {instanceID: 11020}
+      Script: {instanceID: 10574}
     - Class: 114
-      Script: {instanceID: 20730}
+      Script: {instanceID: 10986}
+    - Class: 114
+      Script: {instanceID: 11022}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -157,6 +169,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AppleManager
+  - hash:
+      serializedVersion: 2
+      Hash: 3f3cdf200e912ae6bfe8e4f0c762a3a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DialogManager
   - hash:
       serializedVersion: 2
       Hash: 984dcc0ba3707b7691fbdca8ff508d28
@@ -1201,12 +1219,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 7ec686ed116795f016d870662233446a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DialogManager
   platform: 9
   scenePathNames:
   - Assets/Scenes/MainScene.unity

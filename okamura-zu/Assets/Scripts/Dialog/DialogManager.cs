@@ -11,6 +11,7 @@ public class DialogManager : MonoBehaviour
     public GameObject dialogBack;
     public GameObject dialog;
     public GameObject btn_close;
+    public GameObject btn_confirm;
 
     void Start(){
         InitialSetActive();
@@ -20,6 +21,12 @@ public class DialogManager : MonoBehaviour
     void InitialSetObserver(){
 
         btn_close.AddComponent<ObservableEventTrigger>()
+            .OnPointerClickAsObservable()
+            .Subscribe(_ => {
+                CloseDialog();
+            });
+
+        btn_confirm.AddComponent<ObservableEventTrigger>()
             .OnPointerClickAsObservable()
             .Subscribe(_ => {
                 CloseDialog();
