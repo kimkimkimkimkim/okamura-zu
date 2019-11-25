@@ -69,7 +69,7 @@ public class MainSceneManager : MonoBehaviour
         btn_monsterOrganization.AddComponent<ObservableEventTrigger>()
             .OnPointerClickAsObservable()
             .Subscribe(_ => {
-                dialogManager.GetComponent<DialogManager>().OpenDialog();
+                dialogManager.GetComponent<DialogManager>().OpenDialog(DialogType.MonsterStrengthen);
             });
     }
 

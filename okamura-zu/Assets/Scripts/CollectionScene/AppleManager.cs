@@ -11,10 +11,14 @@ public class AppleManager : MonoBehaviour
     private float finalScale = 0.15f; //最終的なスケール
     private AppleData appleData; //アップルデータ
 
+    private GameObject updateDataManager;
+
     void Start(){
         appleData = SaveData.GetClass<AppleData>(SaveDataKeys.appleData + index.ToString(),new AppleData());
         SaveData.SetClass<AppleData>(SaveDataKeys.appleData + index.ToString(),appleData);
         SaveData.Save();
+
+        updateDataManager = GameObject.Find("UpdateDataManager");
     }
 
     void Update(){
@@ -51,6 +55,13 @@ public class AppleManager : MonoBehaviour
     }
 
     private void Harvest(){
+        //ポイント更新
+        int point = SaveData.GetInt(SaveDataKeys.possessedPoint);
+        point += appleData.point;
+        SaveData.SetInt(SaveDataKeys.possessedPoint,point);
+        updateDataManager.GetComponent<UpdateDataManager>().UpdatePossessedPoint(point);
+
+
         //新しいりんごの生成
         appleData = new AppleData();
         SaveData.SetClass<AppleData>(SaveDataKeys.appleData + index.ToString(),appleData);

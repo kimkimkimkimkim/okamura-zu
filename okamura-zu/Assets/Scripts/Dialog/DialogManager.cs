@@ -5,40 +5,54 @@ using UniRx;
 using UniRx.Triggers;
 using DG.Tweening;
 
+public delegate void CloseDialogCallBack();
+
+public enum DialogType {
+    MonsterStrengthen,
+    CannotSingleGacha,
+    SingleGacha,
+}
+
 public class DialogManager : MonoBehaviour
 {
     //オブジェクト参照
     public GameObject dialogBack;
-    public GameObject dialog;
-    public GameObject btn_close;
-    public GameObject btn_confirm;
+    public GameObject dialogMonsterStrengthen;
+    public GameObject dialogCannotSingleGacha;
+    public GameObject dialogSingleGacha;
+
+    //変数宣言
+    private GameObject dialog;
 
     void Start(){
         InitialSetActive();
-        InitialSetObserver();
-    }
-
-    void InitialSetObserver(){
-
-        btn_close.AddComponent<ObservableEventTrigger>()
-            .OnPointerClickAsObservable()
-            .Subscribe(_ => {
-                CloseDialog();
-            });
-
-        btn_confirm.AddComponent<ObservableEventTrigger>()
-            .OnPointerClickAsObservable()
-            .Subscribe(_ => {
-                CloseDialog();
-            });
     }
 
     void InitialSetActive(){
         dialogBack.SetActive(false);
-        dialog.SetActive(false);
+        // 子オブジェクトを全て取得する
+        foreach (Transform childTransform in dialogBack.transform)
+        {
+            childTransform.gameObject.SetActive(false);
+        }
     }
 
-    public void OpenDialog(){
+    public void OpenDialog(DialogType dt){
+
+        switch(dt){
+        case DialogType.MonsterStrengthen:
+            dialog = dialogMonsterStrengthen;
+            break;
+        case DialogType.SingleGacha:
+            dialog = dialogSingleGacha;
+            break;
+        case DialogType.CannotSingleGacha:
+            dialog = dialogCannotSingleGacha;
+            break;
+        default:
+            return;
+        }
+
         dialogBack.SetActive(true);
 
         //ダイアログのアニメーション
@@ -50,7 +64,8 @@ public class DialogManager : MonoBehaviour
         ).SetEase(Ease.OutBack);
     }
 
-    public void CloseDialog(){
+    public void CloseDialog(CloseDialogCallBack c){
+
         //ダイアログのアニメーション
         dialog.transform
             .DOScale(Vector3.zero,0.4f)
@@ -58,6 +73,7 @@ public class DialogManager : MonoBehaviour
             .OnComplete(() => {
                 dialog.SetActive(false);
                 dialogBack.SetActive(false);
+                c();
             });
         ;
     }

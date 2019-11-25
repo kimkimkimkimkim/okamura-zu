@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Terasurware\Classes\Editor\BossExcelData_importer.cs" />
      <Compile Include="Assets\Terasurware\Classes\Editor\EnemyExcelData_importer.cs" />
+     <Compile Include="Assets\Terasurware\Classes\Editor\NamakemonoExcelData_importer.cs" />
      <Compile Include="Assets\Terasurware\Editor\ExcelImporterMaker.cs" />
      <None Include="Assets\Terasurware\Editor\ExportTemplate.txt" />
      <None Include="Assets\Terasurware\Editor\ExportTemplate2.txt" />

@@ -313,7 +313,7 @@ public class SaveData
 		}
 
 		public void SetList<T> (string key, List<T> list) 
-		{
+		{	
 			keyCheck (key);
 			var serializableList = new Serialization<T> (list);
 			string json = JsonUtility.ToJson (serializableList);
