@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\Common\UpdateDataManager.cs" />
      <Compile Include="Assets\Scripts\Dialog\CannotSingleGachaDialogManager.cs" />
      <Compile Include="Assets\Scripts\Dialog\DialogManager.cs" />
+     <Compile Include="Assets\Scripts\Dialog\MonsterStrengthenDialogListComponent.cs" />
      <Compile Include="Assets\Scripts\Dialog\MonsterStrengthenDialogManager.cs" />
      <Compile Include="Assets\Scripts\Dialog\SingleGachaDialogManager.cs" />
      <Compile Include="Assets\Scripts\GachaScene\GachaSceneManager.cs" />

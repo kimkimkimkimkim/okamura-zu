@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - BackButtonManager
     - BossBattleTimer
     - BossData
+    - CannotSingleGachaDialogManager
     - CollectionSceneManager
     - CreateNewItemOnClickManager
     - DataManager
@@ -18,9 +19,14 @@ ScriptsOnlyBuild:
     - HeaderFooterManager
     - ItemManager
     - MainSceneManager
+    - MonsterStrengthenDialogListComponent
+    - MonsterStrengthenDialogManager
+    - NamakemonoExcelData
     - NavigationManager
+    - SingleGachaDialogManager
     - TapEffect
     - ToCollectionSceneButtonManager
+    - UpdateDataManager
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
     UniRx.dll:
@@ -77,73 +83,85 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9292}
     - Class: 114
-      Script: {instanceID: 9416}
+      Script: {instanceID: 9348}
     - Class: 114
-      Script: {instanceID: 9456}
+      Script: {instanceID: 9418}
     - Class: 114
       Script: {instanceID: 9458}
     - Class: 114
-      Script: {instanceID: 9462}
+      Script: {instanceID: 9460}
     - Class: 114
       Script: {instanceID: 9464}
     - Class: 114
-      Script: {instanceID: 9468}
+      Script: {instanceID: 9466}
     - Class: 114
-      Script: {instanceID: 9472}
+      Script: {instanceID: 9470}
     - Class: 114
-      Script: {instanceID: 9476}
+      Script: {instanceID: 9474}
     - Class: 114
-      Script: {instanceID: 9484}
+      Script: {instanceID: 9478}
     - Class: 114
-      Script: {instanceID: 9488}
+      Script: {instanceID: 9486}
     - Class: 114
-      Script: {instanceID: 9504}
+      Script: {instanceID: 9490}
     - Class: 114
-      Script: {instanceID: 9510}
+      Script: {instanceID: 9506}
     - Class: 114
       Script: {instanceID: 9512}
     - Class: 114
       Script: {instanceID: 9514}
     - Class: 114
-      Script: {instanceID: 9524}
+      Script: {instanceID: 9516}
     - Class: 114
-      Script: {instanceID: 9868}
+      Script: {instanceID: 9526}
     - Class: 114
-      Script: {instanceID: 9946}
+      Script: {instanceID: 9664}
     - Class: 114
-      Script: {instanceID: 9984}
+      Script: {instanceID: 9742}
     - Class: 114
-      Script: {instanceID: 10006}
+      Script: {instanceID: 9874}
     - Class: 114
-      Script: {instanceID: 10032}
+      Script: {instanceID: 9952}
     - Class: 114
-      Script: {instanceID: 10128}
+      Script: {instanceID: 9990}
     - Class: 114
-      Script: {instanceID: 10168}
+      Script: {instanceID: 10012}
     - Class: 114
-      Script: {instanceID: 10186}
+      Script: {instanceID: 10038}
     - Class: 114
-      Script: {instanceID: 10234}
+      Script: {instanceID: 10134}
     - Class: 114
-      Script: {instanceID: 10264}
+      Script: {instanceID: 10174}
     - Class: 114
-      Script: {instanceID: 10370}
+      Script: {instanceID: 10192}
     - Class: 114
-      Script: {instanceID: 10374}
+      Script: {instanceID: 10240}
     - Class: 114
-      Script: {instanceID: 10442}
+      Script: {instanceID: 10270}
     - Class: 114
-      Script: {instanceID: 10452}
+      Script: {instanceID: 10376}
     - Class: 114
-      Script: {instanceID: 10538}
+      Script: {instanceID: 10380}
     - Class: 114
-      Script: {instanceID: 10546}
+      Script: {instanceID: 10448}
     - Class: 114
-      Script: {instanceID: 10574}
+      Script: {instanceID: 10458}
     - Class: 114
-      Script: {instanceID: 10986}
+      Script: {instanceID: 10544}
     - Class: 114
-      Script: {instanceID: 11022}
+      Script: {instanceID: 10552}
+    - Class: 114
+      Script: {instanceID: 10580}
+    - Class: 114
+      Script: {instanceID: 10874}
+    - Class: 114
+      Script: {instanceID: 10996}
+    - Class: 114
+      Script: {instanceID: 11032}
+    - Class: 114
+      Script: {instanceID: 11078}
+    - Class: 114
+      Script: {instanceID: 59656}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -171,7 +189,7 @@ ScriptsOnlyBuild:
     className: AppleManager
   - hash:
       serializedVersion: 2
-      Hash: 3f3cdf200e912ae6bfe8e4f0c762a3a4
+      Hash: a6a1dac0bb8deba5433e5d8522a88fa4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DialogManager
@@ -211,6 +229,12 @@ ScriptsOnlyBuild:
     assemblyName: UniRx.Examples.dll
     namespaceName: UniRx.Examples
     className: Sample12_ReactiveProperty
+  - hash:
+      serializedVersion: 2
+      Hash: af18516c9970ba151cb4cd11630f9c32
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UpdateDataManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -645,6 +669,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 87800eefba17a64ed55cde98071894cd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CannotSingleGachaDialogManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -661,6 +691,12 @@ ScriptsOnlyBuild:
     assemblyName: UniRx.dll
     namespaceName: UniRx.Triggers
     className: ObservablePointerClickTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: 5316ed3ef0deff2f647a4db2021330a8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NamakemonoExcelData
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -879,7 +915,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 195679991afbefbb82ee520e4eb0c18b
+      Hash: b0d5aa01281c1612e093ecaa64fa85ef
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GachaSceneManager
@@ -1137,6 +1173,12 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
+      Hash: b4126fb1fea61cd255c510df0a539857
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MonsterStrengthenDialogManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UniRx.dll
     namespaceName: UniRx.Triggers
@@ -1215,10 +1257,22 @@ ScriptsOnlyBuild:
     className: NavigationButton
   - hash:
       serializedVersion: 2
+      Hash: daf5f5b6962f96212915a336bdaa5f57
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SingleGachaDialogManager
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 6e4aeb5796a5e880335102360d835e8f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MonsterStrengthenDialogListComponent
   platform: 9
   scenePathNames:
   - Assets/Scenes/MainScene.unity

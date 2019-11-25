@@ -36,6 +36,7 @@ public class MonsterStrengthenDialogManager : MonoBehaviour
             GameObject listComponent = (GameObject)Instantiate(listComponentPrefab);
             listComponent.transform.SetParent(contentContainer.transform);
             listComponent.transform.localScale = new Vector3(1,1,1);
+            listComponent.GetComponent<MonsterStrengthenDialogListComponent>().SetUp(nd);
         }
     }
 

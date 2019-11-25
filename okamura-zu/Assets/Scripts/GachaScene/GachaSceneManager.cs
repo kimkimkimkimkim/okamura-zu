@@ -137,7 +137,7 @@ public class GachaSceneManager : MonoBehaviour
 
     //ガチャで取得したアイテムを保存
     private void UpdateGachaItemData(string gachaItem){
-        SaveData.Remove(SaveDataKeys.possessedNamakemonoList);
+        //SaveData.Remove(SaveDataKeys.possessedNamakemonoList);
         if(gachaItem=="rare"){
 
         }else if(gachaItem=="speed"){
@@ -151,24 +151,11 @@ public class GachaSceneManager : MonoBehaviour
                 
             }else{
                 //ゲットしたナマケモノを持っていなければリストに追加し保存
-                //Debug.Log("before list.length:"+possessedNamakemonoList.Count);
                 string name = namakemonoExcelData.sheets[0].list[int.Parse(gachaItem)-1].Name;
-                //Debug.Log("name:"+name);
                 NamakemonoData nd = new NamakemonoData(int.Parse(gachaItem),name);
-                //Debug.Log("nd.no:"+nd.No);
-                //Debug.Log("nd.name:"+nd.name);
                 possessedNamakemonoList.Add(nd);
-                //Debug.Log("list.length:"+possessedNamakemonoList.Count);
-                //Debug.Log("list[0].no:"+possessedNamakemonoList[0].No);
-                //Debug.Log("list[0].name:"+possessedNamakemonoList[0].name);
                 SaveData.SetList<NamakemonoData>(SaveDataKeys.possessedNamakemonoList,InitialValues.POSSESSED_NAMAKEMONO_LIST);
                 SaveData.Save();
-                /*
-                NamakemonoData nd = new NamakemonoData(int.Parse(gachaItem),name);
-                possessedNamakemonoList.Add(nd);
-                SaveData.SetClassList<NamakemonoData>(SaveDataKeys.possessedNamakemonoList,possessedNamakemonoList);
-                SaveData.Save();
-                */
             }
         }
     }
