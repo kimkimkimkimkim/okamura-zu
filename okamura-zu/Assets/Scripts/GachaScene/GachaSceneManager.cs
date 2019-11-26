@@ -154,9 +154,13 @@ public class GachaSceneManager : MonoBehaviour
                 string name = namakemonoExcelData.sheets[0].list[int.Parse(gachaItem)-1].Name;
                 NamakemonoData nd = new NamakemonoData(int.Parse(gachaItem),name);
                 possessedNamakemonoList.Add(nd);
-                SaveData.SetList<NamakemonoData>(SaveDataKeys.possessedNamakemonoList,InitialValues.POSSESSED_NAMAKEMONO_LIST);
+                SaveData.SetList<NamakemonoData>(SaveDataKeys.possessedNamakemonoList,possessedNamakemonoList);
                 SaveData.Save();
             }
+
+            //新しいナマケモノリストを反映
+            GameObject udMane = GameObject.Find("UpdateDataManager");
+            udMane.GetComponent<UpdateDataManager>().UpdatePossessedNamakemonoList(possessedNamakemonoList);
         }
     }
 
@@ -164,12 +168,13 @@ public class GachaSceneManager : MonoBehaviour
     public void DisplayGachaView(){
 
         //りんご消費
+        /*
         int possessedPoint = SaveData.GetInt(SaveDataKeys.possessedPoint);
         possessedPoint -= gachaCost;
         SaveData.SetInt(SaveDataKeys.possessedPoint,possessedPoint);
         SaveData.Save();
         updateDataManager.GetComponent<UpdateDataManager>().UpdatePossessedPoint(possessedPoint);
-
+*/
         //navigationManager.GetComponent<NavigationManager>().canMove = false;
         //popup.SetActive(false);
         //出るアイテムを決定し画像に反映

@@ -87,6 +87,7 @@
      <Compile Include="Assets\Scripts\Dialog\SingleGachaDialogManager.cs" />
      <Compile Include="Assets\Scripts\GachaScene\GachaSceneManager.cs" />
      <Compile Include="Assets\Scripts\HeaderFooter\HeaderFooterManager.cs" />
+     <Compile Include="Assets\Scripts\MainScene\AllyAreaManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\AllyManager.cs" />
      <Compile Include="Assets\Scripts\MainScene\BossBattleTimer.cs" />
      <Compile Include="Assets\Scripts\MainScene\EnemyDeathAnimation.cs" />

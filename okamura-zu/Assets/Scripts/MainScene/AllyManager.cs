@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AllyManager : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class AllyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        time = UnityEngine.Random.Range(0,attackInterval);
         mainSceneManager = GameObject.Find("MainSceneManager");
+    }
+
+    public void Setting(NamakemonoData nd){
+        Sprite s = Resources.Load<Sprite>("Image/Monster/" + nd.No.ToString());
+        this.GetComponent<Image>().sprite = s;
     }
 
     void FixedUpdate(){
