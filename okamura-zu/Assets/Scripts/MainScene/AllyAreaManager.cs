@@ -17,17 +17,16 @@ public class AllyAreaManager : MonoBehaviour
     public void SetAlly(List<NamakemonoData> ndList){
         Hide();
 
-        Debug.Log("count:"+possessedNamakemonoList.Count);
         //表示
-        for(int i=0;i<possessedNamakemonoList.Count;i++){
+        for(int i=0;i<ndList.Count;i++){
             GameObject ally = this.transform.GetChild(i).GetChild(0).gameObject;
             ally.SetActive(true);
-            ally.GetComponent<AllyManager>().Setting(possessedNamakemonoList[i]);
+            ally.GetComponent<AllyManager>().Setting(ndList[i]);
         }
     }
 
     private void Hide(){
-        //allyを全削除
+        //allyを全非表示
         foreach (Transform childTransform in this.transform)
         {
             childTransform.gameObject.GetComponent<Image>().color = new Color(0,0,0,0);

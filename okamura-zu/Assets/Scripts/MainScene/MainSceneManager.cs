@@ -93,7 +93,10 @@ public class MainSceneManager : MonoBehaviour
             s = Resources.Load<Sprite>("Image/Enemy/" + enemyId.ToString());
         }else{
             //通常
-            enemyHp = UnityEngine.Random.Range(8, 12 + 1);
+            int prefectureNum = int.Parse(nowStageNum.Split('-')[0]);
+            int areaNum = int.Parse(nowStageNum.Split('-')[1]);
+            int bossHp = bossData.sheets[prefectureNum-1].list[areaNum-1].hp;
+            enemyHp = UnityEngine.Random.Range((int)(bossHp*0.6f), (int)(bossHp*0.8f));
             slider_time.SetActive(false);
             //enemyId = UnityEngine.Random.Range(1,18); //1~17の乱数(int)
             enemyId = 18;

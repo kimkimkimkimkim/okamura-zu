@@ -21,9 +21,13 @@ public class AllyManager : MonoBehaviour
         mainSceneManager = GameObject.Find("MainSceneManager");
     }
 
+    //設定
     public void Setting(NamakemonoData nd){
+        //画像の設定
         Sprite s = Resources.Load<Sprite>("Image/Monster/" + nd.No.ToString());
         this.GetComponent<Image>().sprite = s;
+        //攻撃力
+        attackPower = nd.GetAttackPower();
     }
 
     void FixedUpdate(){

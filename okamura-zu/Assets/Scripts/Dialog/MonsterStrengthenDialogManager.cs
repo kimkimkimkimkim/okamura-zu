@@ -24,6 +24,10 @@ public class MonsterStrengthenDialogManager : MonoBehaviour
     }
 
     void OnEnable(){
+        Setting();
+    }
+
+    public void Setting(){
         //スクロールビューの子オブジェクトを全て削除する
         foreach (Transform childTransform in contentContainer.transform)
         {
@@ -37,6 +41,7 @@ public class MonsterStrengthenDialogManager : MonoBehaviour
             GameObject listComponent = (GameObject)Instantiate(listComponentPrefab);
             listComponent.transform.SetParent(contentContainer.transform);
             listComponent.transform.localScale = new Vector3(1,1,1);
+            listComponent.transform.localPosition = new Vector3(0,0,0);
             listComponent.GetComponent<MonsterStrengthenDialogListComponent>().SetUp(nd);
         }
     }
@@ -46,9 +51,7 @@ public class MonsterStrengthenDialogManager : MonoBehaviour
         //ダイアログを閉じる
         btnCloseDialog.AddComponent<ObservableEventTrigger>()
             .OnPointerClickAsObservable()
-            .Subscribe(_ => {
-                dialogManager.GetComponent<DialogManager>().CloseDialog(()=>{});
-            });
+            .Subscribe(_ => dialogManager.GetComponent<DialogManager>().CloseDialog(()=>{}));
     }
     
 

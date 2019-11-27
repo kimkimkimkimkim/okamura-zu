@@ -36,7 +36,7 @@ public class GachaSceneManager : MonoBehaviour
     private int allMonsterCount = 2; //モンスターの総数
 
     void Start(){
-
+        //SaveData.Remove(SaveDataKeys.possessedNamakemonoList);
         updateDataManager = GameObject.Find("UpdateDataManager");
         dialogManager = GameObject.Find("DialogManager");
         iniPos_gachaItem = img_gachaItem.transform.localPosition;
