@@ -26,6 +26,8 @@ public class MainSceneManager : MonoBehaviour
     public GameObject damageTextPrefab;
     public GameObject btn_toBossBattle;
     public GameObject btn_monsterOrganization; //モンスター編成ボタン
+    public GameObject txtAddApple;
+    public GameObject updateDataManager;
 
     //変数宣言
     [System.NonSerialized]
@@ -55,6 +57,7 @@ public class MainSceneManager : MonoBehaviour
         slider_time.SetActive(false);
         btn_toBossBattle.SetActive(false);
         enemyDeathAnimation.SetActive(false);
+        txtAddApple.SetActive(false);
     }
 
     void InitialSetObserver(){
@@ -158,8 +161,34 @@ public class MainSceneManager : MonoBehaviour
 
         if(enemyHp == 0){
             EnemyDefeatAnimation();
+            GetAppleWhenEnemyDefeat();
             //NextStage(1);
         }
+    }
+
+    //敵撃破時コイン取得
+    private void GetAppleWhenEnemyDefeat(){
+        //ゲットするりんごの量を決める
+        int apple = UnityEngine.Random.Range(15,50);
+        int possessedApple = SaveData.GetInt(SaveDataKeys.possessedPoint);
+        possessedApple += apple;
+        //データのUI反映
+        updateDataManager.GetComponent<UpdateDataManager>().UpdatePossessedPoint(possessedApple);
+        //データの保存
+        SaveData.SetInt(SaveDataKeys.possessedPoint,possessedApple);
+        SaveData.Save();
+        //りんご取得アニメーション
+        GetAppleAnimation(apple);
+    }
+
+    private void GetAppleAnimation(int apple){
+        txtAddApple.GetComponent<Text>().text = "+ " + apple.ToString();
+        txtAddApple.SetActive(true);
+
+        Observable.Return(Unit.Default)
+            .Delay(TimeSpan.FromMilliseconds(1000))
+            .Subscribe(_ => txtAddApple.SetActive(false));
+
     }
 
     //敵撃破アニメーション
