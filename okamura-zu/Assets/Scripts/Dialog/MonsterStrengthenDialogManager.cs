@@ -36,6 +36,12 @@ public class MonsterStrengthenDialogManager : MonoBehaviour
 
         //所持モンスター取得
         possessedNamakemonoList = SaveData.GetList<NamakemonoData>(SaveDataKeys.possessedNamakemonoList,InitialValues.POSSESSED_NAMAKEMONO_LIST);
+        //プレイヤーリストの表示
+        GameObject p = (GameObject)Instantiate(listComponentPrefab);
+        p.transform.SetParent(contentContainer.transform);
+        p.transform.localScale = new Vector3(1,1,1);
+        p.transform.localPosition = new Vector3(0,0,0);
+        p.GetComponent<MonsterStrengthenDialogListComponent>().SetUp(new NamakemonoData(0,"")); //図鑑番号0のナマケモノとすることでプレイヤーだと判定している
         //所持モンスターリスト表示
         foreach(NamakemonoData nd in possessedNamakemonoList){
             GameObject listComponent = (GameObject)Instantiate(listComponentPrefab);

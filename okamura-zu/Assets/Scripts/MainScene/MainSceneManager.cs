@@ -30,10 +30,13 @@ public class MainSceneManager : MonoBehaviour
     public GameObject updateDataManager;
 
     //変数宣言
-    [System.NonSerialized]
-    public int playerAttackPower; //プレイヤーの攻撃力
+    //[System.NonSerialized]
+    //public int playerAttackPower; //プレイヤーの攻撃力
     [System.NonSerialized]
     public int enemyHp; //敵のHP
+    //private int 
+    //private int playerLevel; //プレイヤーのレベル
+    private PlayerData player;
     private string nowStageNum; //現在のステージ
     private bool canAttack = true; //タップ攻撃可能かどうか
     private bool prepareBossBattle = false; //ボス戦準備中かどうか
@@ -49,7 +52,9 @@ public class MainSceneManager : MonoBehaviour
 
     void GetSaveData(){
         //セーブデータの取得
-        playerAttackPower = SaveData.GetInt(SaveDataKeys.playerAttackPower,InitialValues.PLAYER_ATTACK_POWER);
+        //playerAttackPower = SaveData.GetInt(SaveDataKeys.playerAttackPower,InitialValues.PLAYER_ATTACK_POWER);
+        //playerLevel = SaveData.GetInt(SaveDataKeys.playerLevel,InitialValues.PLAYER_LEVEL);
+        player = SaveData.GetClass<PlayerData>(SaveDataKeys.player,InitialValues.PLAYER);
         nowStageNum = SaveData.GetString(SaveDataKeys.maxStageNum,InitialValues.MAX_STAGE_NUM);
     }
 
@@ -123,14 +128,21 @@ public class MainSceneManager : MonoBehaviour
         }
     }
 
+    public void UpdatePlayer(PlayerData p){
+        player = p;
+    }
+
     //味方から敵への攻撃
     public void Attack(int attackPower = 0){
         if(!canAttack) return;
-        if(attackPower == 0) attackPower = playerAttackPower; //タップでの攻撃
+        if(attackPower == 0) {
+            //プレイヤーの攻撃
+            attackPower = player.GetAttackPower(); //タップでの攻撃
+            DamageEffect(attackPower);
+        }
 
         enemyHp = (enemyHp <= attackPower)? 0 : enemyHp-attackPower;
         UpdateEnemyHp();
-        DamageEffect(attackPower);
     }
 
     private void DamageEffect(int attack){

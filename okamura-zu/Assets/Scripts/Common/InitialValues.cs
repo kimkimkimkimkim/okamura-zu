@@ -15,5 +15,6 @@ public class InitialValues{
     static public int PLAYER_ATTACK_POWER = 1; //プレイヤーの攻撃力
     static public string MAX_STAGE_NUM = "1-1-1"; //最高到達ステージ
     static public List<NamakemonoData> POSSESSED_NAMAKEMONO_LIST = new List<NamakemonoData>();
+    static public PlayerData PLAYER = new PlayerData(); //プレイヤクラス
 }
 

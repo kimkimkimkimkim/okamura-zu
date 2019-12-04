@@ -234,7 +234,7 @@ ScriptsOnlyBuild:
     className: Sample12_ReactiveProperty
   - hash:
       serializedVersion: 2
-      Hash: e488383f71086c5b4e3704b4b9dd8a7d
+      Hash: 16c21dda38418447e9b67a36acc2a5af
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UpdateDataManager

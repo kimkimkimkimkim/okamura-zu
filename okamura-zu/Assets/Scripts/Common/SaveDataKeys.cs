@@ -19,5 +19,6 @@ public class SaveDataKeys{
     static public string maxStageNum = "maxStageNum"; //ステージの最高到達点 (ex: "1-1-2") : string
     static public string possessedPoint = "possessedPoint"; //所持ポイント : int
     static public string possessedNamakemonoList = "possessedNamakemonoList"; //所持ナマケモノリスト : List<NamakemonoData>
+    static public string player = "player"; //プレイヤクラス
 }
 

@@ -8,6 +8,7 @@ public class UpdateDataManager : MonoBehaviour
     //オブジェクト参照
     public GameObject txtPossessedPointInGacha; //ガチャ画面の所持ポイントテキスト
     public GameObject allyAreaManager;
+    public GameObject mainSceneManager;
 
     public void UpdatePossessedPoint(int point){
         txtPossessedPointInGacha.GetComponent<Text>().text = point.ToString();
@@ -15,5 +16,9 @@ public class UpdateDataManager : MonoBehaviour
 
     public void UpdatePossessedNamakemonoList(List<NamakemonoData> ndList){
         allyAreaManager.GetComponent<AllyAreaManager>().SetAlly(ndList);
+    }
+
+    public void UpdatePlayer(PlayerData player){
+        mainSceneManager.GetComponent<MainSceneManager>().UpdatePlayer(player);
     }
 }

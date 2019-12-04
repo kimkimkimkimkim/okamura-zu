@@ -4566,6 +4566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtPossessedPointInGacha: {fileID: 67152461}
   allyAreaManager: {fileID: 1558821667}
+  mainSceneManager: {fileID: 1780063110}
 --- !u!1 &686155245
 GameObject:
   m_ObjectHideFlags: 0

@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\Common\InitialValues.cs" />
      <Compile Include="Assets\Scripts\Common\MyConfig.cs" />
      <Compile Include="Assets\Scripts\Common\NavigationManager.cs" />
+     <Compile Include="Assets\Scripts\Common\PlayerData.cs" />
      <Compile Include="Assets\Scripts\Common\SaveData.cs" />
      <Compile Include="Assets\Scripts\Common\SaveData1.cs" />
      <Compile Include="Assets\Scripts\Common\SaveDataKeys.cs" />
