@@ -85,6 +85,7 @@ public class MonsterStrengthenDialogListComponent : MonoBehaviour
         player.level = player.level + 1;
 
         //保存
+        SaveData.SetInt(SaveDataKeys.possessedPoint,apple);
         SaveData.SetClass<PlayerData>(SaveDataKeys.player,player);
         SaveData.Save();
 
