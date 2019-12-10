@@ -103,7 +103,7 @@ public class MonsterStrengthenDialogListComponent : MonoBehaviour
             return;
         }
         imgIcon.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/Monster/" + nd.No.ToString());
-        txtName.GetComponent<Text>().text = nd.name;
+        txtName.GetComponent<Text>().text = nd.name + ((nd.plus==0)?"":" +"+nd.plus.ToString());
         txtLevel.GetComponent<Text>().text = nd.level.ToString();
         txtNextNeededApple.GetComponent<Text>().text = nd.GetNextNeededApple().ToString();
         txtAttack.GetComponent<Text>().text = "ATK:"+nd.GetAttackPower().ToString();

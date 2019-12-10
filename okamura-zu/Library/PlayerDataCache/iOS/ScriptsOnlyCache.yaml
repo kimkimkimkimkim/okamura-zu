@@ -154,17 +154,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10554}
     - Class: 114
-      Script: {instanceID: 10582}
+      Script: {instanceID: 10584}
     - Class: 114
-      Script: {instanceID: 10876}
+      Script: {instanceID: 10878}
     - Class: 114
-      Script: {instanceID: 10998}
+      Script: {instanceID: 11000}
     - Class: 114
-      Script: {instanceID: 11034}
+      Script: {instanceID: 11036}
     - Class: 114
-      Script: {instanceID: 11074}
+      Script: {instanceID: 11076}
     - Class: 114
-      Script: {instanceID: 11082}
+      Script: {instanceID: 11084}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128

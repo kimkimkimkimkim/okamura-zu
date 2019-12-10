@@ -39,12 +39,12 @@ public class MainSceneManager : MonoBehaviour
     private PlayerData player;
     private string nowStageNum; //現在のステージ
     private bool canAttack = true; //タップ攻撃可能かどうか
-    private bool prepareBossBattle = false; //ボス戦準備中かどうか
+    private bool prepareBossBattle; //ボス戦準備中かどうか
 
     void Start(){
-        InitialSetActive();
         InitialSetObserver();
         GetSaveData();
+        InitialSetActive();
         SetEnemy();
         UpdateEnemyHp();
         UpdateStage();
@@ -56,11 +56,13 @@ public class MainSceneManager : MonoBehaviour
         //playerLevel = SaveData.GetInt(SaveDataKeys.playerLevel,InitialValues.PLAYER_LEVEL);
         player = SaveData.GetClass<PlayerData>(SaveDataKeys.player,InitialValues.PLAYER);
         nowStageNum = SaveData.GetString(SaveDataKeys.maxStageNum,InitialValues.MAX_STAGE_NUM);
+        prepareBossBattle = SaveData.GetBool(SaveDataKeys.prepareBossBattle,InitialValues.PREPARE_BOSS_BATTLE);
     }
 
     void InitialSetActive(){
         slider_time.SetActive(false);
-        btn_toBossBattle.SetActive(false);
+        if(!prepareBossBattle)btn_toBossBattle.SetActive(false);
+        else btn_toBossBattle.SetActive(true);
         enemyDeathAnimation.SetActive(false);
         txtAddApple.SetActive(false);
     }
@@ -70,6 +72,8 @@ public class MainSceneManager : MonoBehaviour
             .OnPointerClickAsObservable()
             .Subscribe(_ => {
                 prepareBossBattle = false;
+                SaveData.SetBool(SaveDataKeys.prepareBossBattle,prepareBossBattle);
+                SaveData.Save();
                 btn_toBossBattle.SetActive(false);
                 NextStage(1);
             });
@@ -123,6 +127,8 @@ public class MainSceneManager : MonoBehaviour
             //BOSS戦失敗
             NextStage(-1);
             prepareBossBattle = true;
+            SaveData.SetBool(SaveDataKeys.prepareBossBattle,prepareBossBattle);
+            SaveData.Save();
             canAttack = true;
             btn_toBossBattle.SetActive(true);
         }
@@ -226,7 +232,7 @@ public class MainSceneManager : MonoBehaviour
         img_enemy.GetComponent<Image>().color = new Color(255,255,255,1);
 
         if(!prepareBossBattle){
-            //ボス戦準備中なら次のステージに行かない
+            //ボス戦準備中じゃないなら次のステージに行く
             int area = int.Parse(nowStageNum.Split('-')[1]);
             int stage = int.Parse(nowStageNum.Split('-')[2]);
             if(stage==5){
@@ -244,7 +250,6 @@ public class MainSceneManager : MonoBehaviour
             SaveData.SetString(SaveDataKeys.maxStageNum,nowStageNum);
             SaveData.Save();
         }
-
         SetEnemy();
         UpdateEnemyHp();
         UpdateStage();

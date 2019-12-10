@@ -20,5 +20,6 @@ public class SaveDataKeys{
     static public string possessedPoint = "possessedPoint"; //所持ポイント : int
     static public string possessedNamakemonoList = "possessedNamakemonoList"; //所持ナマケモノリスト : List<NamakemonoData>
     static public string player = "player"; //プレイヤクラス
+    static public string prepareBossBattle = "prepareBossBattle"; //ボス戦準備中かどうか
 }
 

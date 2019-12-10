@@ -16,5 +16,6 @@ public class InitialValues{
     static public string MAX_STAGE_NUM = "1-1-1"; //最高到達ステージ
     static public List<NamakemonoData> POSSESSED_NAMAKEMONO_LIST = new List<NamakemonoData>();
     static public PlayerData PLAYER = new PlayerData(); //プレイヤクラス
+    static public bool PREPARE_BOSS_BATTLE = false; //false:自動でボスバトルに行く, true:ボス戦準備中
 }
 

@@ -204,6 +204,30 @@ public class SaveData
 	}
 
 	/// <summary>
+	/// 指定されたキーに関連付けられているbool型の値を取得します。
+	/// 値がない場合、_defaultの値を返します。省略した場合、trueを返します。
+	/// </summary>
+	/// <param name="key">キー</param>
+	/// <param name="_default">デフォルトの値</param>
+	/// <exception cref="System.ArgumentException"></exception>
+	/// <returns></returns>
+	public static bool GetBool (string key, bool _default = true)
+	{
+		return Savedatabase.GetBool (key, _default);
+	}
+
+	/// <summary>
+	/// 指定されたキーに関連付けられているbool型の値をセーブデータに追加します。
+	/// </summary>
+	/// <param name="key">キー</param>
+	/// <param name="value">デフォルトの値</param>
+	/// <exception cref="System.ArgumentException"></exception>
+	public static void SetBool (string key, bool value)
+	{
+		Savedatabase.SetBool (key, value);
+	}
+
+	/// <summary>
 	/// セーブデータからすべてのキーと値を削除します。
 	/// </summary>
 	public static void Clear ()
@@ -425,6 +449,25 @@ public class SaveData
 			double ret;
 			if (!double.TryParse (saveDictionary [key], out ret)) {
 				ret = 0.0f;
+			}
+			return ret;
+		}
+
+		public void SetBool (string key, bool value)
+		{
+			keyCheck (key);
+			saveDictionary [key] = value.ToString ();
+		}
+
+		public bool GetBool (string key, bool _default)
+		{
+			keyCheck (key);
+			if (!saveDictionary.ContainsKey (key)) {
+				return _default;
+			}
+			bool ret;
+			if (!bool.TryParse (saveDictionary [key], out ret)) {
+				ret = true;
 			}
 			return ret;
 		}

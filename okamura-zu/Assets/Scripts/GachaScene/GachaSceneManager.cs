@@ -148,16 +148,21 @@ public class GachaSceneManager : MonoBehaviour
                 = SaveData.GetList<NamakemonoData>(SaveDataKeys.possessedNamakemonoList,InitialValues.POSSESSED_NAMAKEMONO_LIST);
             if(possessedNamakemonoList.Any(nd => nd.No == int.Parse(gachaItem))){
                 //ゲットしたナマケモノを持っていればプラス値増加
-                
+                for(int i=0;i<possessedNamakemonoList.Count;i++){
+                    if(possessedNamakemonoList[i].No == int.Parse(gachaItem)){
+                        possessedNamakemonoList[i].plus = possessedNamakemonoList[i].plus + 1;
+                    }
+                }
             }else{
                 //ゲットしたナマケモノを持っていなければリストに追加し保存
                 string name = namakemonoExcelData.sheets[0].list[int.Parse(gachaItem)-1].Name;
                 NamakemonoData nd = new NamakemonoData(int.Parse(gachaItem),name);
                 possessedNamakemonoList.Add(nd);
-                SaveData.SetList<NamakemonoData>(SaveDataKeys.possessedNamakemonoList,possessedNamakemonoList);
-                SaveData.Save();
+                
             }
-
+            //ナマケモノリストを保存
+            SaveData.SetList<NamakemonoData>(SaveDataKeys.possessedNamakemonoList,possessedNamakemonoList);
+            SaveData.Save();
             //新しいナマケモノリストを反映
             GameObject udMane = GameObject.Find("UpdateDataManager");
             udMane.GetComponent<UpdateDataManager>().UpdatePossessedNamakemonoList(possessedNamakemonoList);
