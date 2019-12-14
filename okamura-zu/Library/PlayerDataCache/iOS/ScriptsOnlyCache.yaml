@@ -834,7 +834,7 @@ ScriptsOnlyBuild:
     className: ObservableEventTrigger
   - hash:
       serializedVersion: 2
-      Hash: f5bf96e8fec278776c9979ed9de811f1
+      Hash: b1f1442555fda76621110b33004faf2a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HeaderFooterManager
