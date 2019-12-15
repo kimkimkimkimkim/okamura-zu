@@ -23,6 +23,7 @@ ScriptsOnlyBuild:
     - MonsterStrengthenDialogListComponent
     - MonsterStrengthenDialogManager
     - NamakemonoExcelData
+    - NamakemonoListViewManager
     - NavigationManager
     - SingleGachaDialogManager
     - TapEffect
@@ -165,6 +166,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11076}
     - Class: 114
       Script: {instanceID: 11084}
+    - Class: 114
+      Script: {instanceID: 30032}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -834,7 +837,7 @@ ScriptsOnlyBuild:
     className: ObservableEventTrigger
   - hash:
       serializedVersion: 2
-      Hash: b1f1442555fda76621110b33004faf2a
+      Hash: 9e48fb72ce51c813e6c8bf45873bdb65
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HeaderFooterManager
@@ -1282,6 +1285,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 4ff4729529c0d85e4d143358f501f1ea
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NamakemonoListViewManager
   platform: 9
   scenePathNames:
   - Assets/Scenes/MainScene.unity

@@ -10,12 +10,18 @@ public class HeaderFooterManager : MonoBehaviour
 {   
     //オブジェクト参照
     public List<GameObject> footerButtons = new List<GameObject>();
+    public List<GameObject> footerButtonMenuList = new List<GameObject>();
     public GameObject navigationManager;
     public GameObject footerMenu;
+    public GameObject txtTitle;
+    public GameObject btnMenuResize;
+    public GameObject btnMenuClose;
 
     //変数宣言
+    private float defaultMenuHeight = 727.7f;
     private float menuHeight = 727.7f;
-    private GameObject isOpenMenuButton = null;
+    private float wideMenuHeight = 1963;
+    private int isOpenMenuButtonIndex = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +33,20 @@ public class HeaderFooterManager : MonoBehaviour
     void InitialSetObserver(){
         footerButtons[0].AddComponent<ObservableEventTrigger>()
             .OnPointerClickAsObservable()
-            .Subscribe(_ => OnPressFooterButton(footerButtons[0]));
+            .Subscribe(_ => OnPressFooterButton(0));
         footerButtons[1].AddComponent<ObservableEventTrigger>()
             .OnPointerClickAsObservable()
-            .Subscribe(_ => OnPressFooterButton(footerButtons[1]));
+            .Subscribe(_ => OnPressFooterButton(1));
         footerButtons[2].AddComponent<ObservableEventTrigger>()
             .OnPointerClickAsObservable()
-            .Subscribe(_ => OnPressFooterButton(footerButtons[2]));
+            .Subscribe(_ => OnPressFooterButton(2));
+
+        btnMenuResize.AddComponent<ObservableEventTrigger>()
+            .OnPointerClickAsObservable()
+            .Subscribe(_ => ResizeMenu());
+        btnMenuClose.AddComponent<ObservableEventTrigger>()
+            .OnPointerClickAsObservable()
+            .Subscribe(_ => CloseMenu());
     }
 
     void InitialSetActice(){
@@ -46,19 +59,23 @@ public class HeaderFooterManager : MonoBehaviour
 
     }
 
-    void OnPressFooterButton(GameObject footerBtn){
-        if(isOpenMenuButton == footerBtn){
+    void OnPressFooterButton(int btnIndex){
+        if(isOpenMenuButtonIndex == -1){
+            //何も開いてないときは開く
+            OpenMenu(btnIndex);
+        }else if(isOpenMenuButtonIndex != btnIndex){
+            //今押したフッターのメニューじゃないメニューが開いてたら、今押したフッターのメニューにスイッチ
+            RenderMenu(btnIndex);
+        }else{
             //今開いてるメニューが押したフッターのメニューだったら閉じる
             CloseMenu();
-            isOpenMenuButton = null;
-        }else{
-            //何も開いてないときは開く
-            isOpenMenuButton = footerBtn;
-            OpenMenu();
         }
     }
 
-    void OpenMenu(){
+    void OpenMenu(int btnIndex){
+        isOpenMenuButtonIndex = btnIndex;
+        
+        RenderMenu(isOpenMenuButtonIndex);
         footerMenu.transform.localPosition = new Vector3(0,-menuHeight,0);
         footerMenu.SetActive(true);
 
@@ -69,15 +86,74 @@ public class HeaderFooterManager : MonoBehaviour
     }
 
     void CloseMenu(){
+        isOpenMenuButtonIndex = -1;
+
+        //全フッターアイコンを非表示
+        foreach(GameObject fb in footerButtons){
+            GameObject icon = fb.transform.Find("icon").gameObject;
+            icon.GetComponent<RectTransform>().localScale=new Vector3(1,1,1);
+            icon.transform.GetChild(0).gameObject.SetActive(true);
+        }
+
         footerMenu.transform.DOLocalMove(
             new Vector3(0,-menuHeight,0),
             0.3f
-        ).OnComplete(() => footerMenu.SetActive(false));
+        ).OnComplete(() => {if(isOpenMenuButtonIndex==-1)footerMenu.SetActive(false);});
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void ResizeMenu(){
+        float beforeHeifht = menuHeight;
+
+        if(menuHeight==defaultMenuHeight){
+            //デフォルトなので大きくする
+            Debug.Log("to wide:"+menuHeight.ToString());
+            menuHeight = wideMenuHeight;
+            btnMenuResize.transform.Find("icon").gameObject.GetComponent<RectTransform>().localRotation=Quaternion.Euler(0,0,180);
+        }else{
+            //大きいのでデフォルトのサイズに戻す
+            Debug.Log("to default:"+menuHeight.ToString());
+            menuHeight = defaultMenuHeight;
+            btnMenuResize.transform.Find("icon").gameObject.GetComponent<RectTransform>().localRotation=Quaternion.Euler(0,0,0);
+        }
+
+        DOVirtual.Float(beforeHeifht,menuHeight,0.3f,value =>{
+            footerMenu.GetComponent<RectTransform>().offsetMax = new Vector2(0,value);
+        });
+    }
+
+    void RenderMenu(int btnIndex){
+        isOpenMenuButtonIndex = btnIndex;
+
+        //全メニューを非表示
+        foreach(GameObject menuView in footerButtonMenuList){
+            menuView.SetActive(false);
+        }
+        foreach(GameObject fb in footerButtons){
+            GameObject icon = fb.transform.Find("icon").gameObject;
+            icon.GetComponent<RectTransform>().localScale=new Vector3(1,1,1);
+            icon.transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+        //メニューのレンダー
+        footerButtonMenuList[isOpenMenuButtonIndex].SetActive(true);
+        //フッターアイコンの変更
+        GameObject footerBtn = footerButtons[btnIndex].transform.Find("icon").gameObject;
+        footerBtn.transform.GetChild(0).gameObject.SetActive(false);
+        footerBtn.GetComponent<RectTransform>().localScale = new Vector3(1.5f,1.5f,1);
+
+        //タイトルテキスト変更
+        switch(isOpenMenuButtonIndex){
+        case 0:
+            txtTitle.GetComponent<Text>().text = "ナマケモノ一覧・強化";
+            break;
+        case 1:
+            txtTitle.GetComponent<Text>().text = "怠け者一覧";
+            break;
+        case 2:
+            txtTitle.GetComponent<Text>().text = "ガチャ一覧";
+            break;
+        default:
+            break;
+        }
     }
 }
