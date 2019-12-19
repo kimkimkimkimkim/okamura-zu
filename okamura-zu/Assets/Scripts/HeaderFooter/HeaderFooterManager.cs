@@ -60,6 +60,8 @@ public class HeaderFooterManager : MonoBehaviour
     }
 
     void OnPressFooterButton(int btnIndex){
+        btnMenuResize.SetActive(true);
+        
         if(isOpenMenuButtonIndex == -1){
             //何も開いてないときは開く
             OpenMenu(btnIndex);
@@ -119,6 +121,27 @@ public class HeaderFooterManager : MonoBehaviour
         DOVirtual.Float(beforeHeifht,menuHeight,0.3f,value =>{
             footerMenu.GetComponent<RectTransform>().offsetMax = new Vector2(0,value);
         });
+    }
+
+    public void RenderGachaDetailView(){
+        btnMenuResize.SetActive(false);
+
+        //menuをwideバージョンに
+        if(menuHeight == defaultMenuHeight){
+            menuHeight = wideMenuHeight;
+            btnMenuResize.transform.Find("icon").gameObject.GetComponent<RectTransform>().localRotation=Quaternion.Euler(0,0,180);
+            DOVirtual.Float(defaultMenuHeight,wideMenuHeight,0.3f,value =>{
+                footerMenu.GetComponent<RectTransform>().offsetMax = new Vector2(0,value);
+            });
+        }
+
+        //画面変更
+        //全メニューを非表示
+        foreach(GameObject menuView in footerButtonMenuList){
+            menuView.SetActive(false);
+        }
+        //メニューのレンダー
+        footerButtonMenuList[3].SetActive(true);
     }
 
     void RenderMenu(int btnIndex){
