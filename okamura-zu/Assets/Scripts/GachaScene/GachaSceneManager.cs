@@ -96,8 +96,8 @@ public class GachaSceneManager : MonoBehaviour
             dialogManager.GetComponent<DialogManager>().OpenDialog(DialogType.CannotSingleGacha);
         }else{
             //シングルガチャダイアログをだす
-            dialogManager.GetComponent<DialogManager>().OpenDialog(DialogType.SingleGacha);
-            //DisplayGachaView();
+            //dialogManager.GetComponent<DialogManager>().OpenDialog(DialogType.SingleGacha);
+            DisplayGachaView();
 
         }
     }

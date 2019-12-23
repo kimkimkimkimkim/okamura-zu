@@ -92,6 +92,7 @@ public class HeaderFooterManager : MonoBehaviour
 
         //全フッターアイコンを非表示
         foreach(GameObject fb in footerButtons){
+            fb.transform.Find("marker").gameObject.SetActive(false);
             GameObject icon = fb.transform.Find("icon").gameObject;
             icon.GetComponent<RectTransform>().localScale=new Vector3(1,1,1);
             icon.transform.GetChild(0).gameObject.SetActive(true);
@@ -152,6 +153,7 @@ public class HeaderFooterManager : MonoBehaviour
             menuView.SetActive(false);
         }
         foreach(GameObject fb in footerButtons){
+            fb.transform.Find("marker").gameObject.SetActive(false);
             GameObject icon = fb.transform.Find("icon").gameObject;
             icon.GetComponent<RectTransform>().localScale=new Vector3(1,1,1);
             icon.transform.GetChild(0).gameObject.SetActive(true);
@@ -160,6 +162,7 @@ public class HeaderFooterManager : MonoBehaviour
         //メニューのレンダー
         footerButtonMenuList[isOpenMenuButtonIndex].SetActive(true);
         //フッターアイコンの変更
+        footerButtons[btnIndex].transform.Find("marker").gameObject.SetActive(true);
         GameObject footerBtn = footerButtons[btnIndex].transform.Find("icon").gameObject;
         footerBtn.transform.GetChild(0).gameObject.SetActive(false);
         footerBtn.GetComponent<RectTransform>().localScale = new Vector3(1.5f,1.5f,1);
