@@ -22,6 +22,9 @@ public class AllyAreaManager : MonoBehaviour
             GameObject ally = this.transform.GetChild(i).GetChild(0).gameObject;
             ally.SetActive(true);
             ally.GetComponent<AllyManager>().Setting(ndList[i]);
+            GameObject destination = this.transform.GetChild(i).GetChild(1).gameObject;
+            destination.SetActive(true);
+            destination.GetComponent<Image>().color = new Color(0,0,0,0);
         }
     }
 
@@ -31,6 +34,7 @@ public class AllyAreaManager : MonoBehaviour
         {
             childTransform.gameObject.GetComponent<Image>().color = new Color(0,0,0,0);
             childTransform.GetChild(0).gameObject.SetActive(false);
+            childTransform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }
