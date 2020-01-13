@@ -11,6 +11,7 @@ public enum DialogType {
     MonsterStrengthen,
     CannotSingleGacha,
     SingleGacha,
+    GetCoin,
 }
 
 public class DialogManager : MonoBehaviour
@@ -20,6 +21,7 @@ public class DialogManager : MonoBehaviour
     public GameObject dialogMonsterStrengthen;
     public GameObject dialogCannotSingleGacha;
     public GameObject dialogSingleGacha;
+    public GameObject dialogGetCoin;
 
     //変数宣言
     private GameObject dialog;
@@ -48,6 +50,9 @@ public class DialogManager : MonoBehaviour
             break;
         case DialogType.CannotSingleGacha:
             dialog = dialogCannotSingleGacha;
+            break;
+        case DialogType.GetCoin:
+            dialog = dialogGetCoin;
             break;
         default:
             return;

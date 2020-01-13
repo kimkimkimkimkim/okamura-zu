@@ -21,5 +21,6 @@ public class SaveDataKeys{
     static public string possessedNamakemonoList = "possessedNamakemonoList"; //所持ナマケモノリスト : List<NamakemonoData>
     static public string player = "player"; //プレイヤクラス
     static public string prepareBossBattle = "prepareBossBattle"; //ボス戦準備中かどうか
+    static public string timeBonusData = "timeBonusData"; //タイムボーナス関係のクラス : class
 }
 

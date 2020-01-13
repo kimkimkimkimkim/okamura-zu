@@ -18,6 +18,7 @@ ScriptsOnlyBuild:
     - FadeManager
     - GachaListViewManager
     - GachaSceneManager
+    - GetCoinDialogManager
     - HeaderFooterManager
     - ItemManager
     - MainSceneManager
@@ -28,6 +29,7 @@ ScriptsOnlyBuild:
     - NavigationManager
     - SingleGachaDialogManager
     - TapEffect
+    - TimeBonusManager
     - ToCollectionSceneButtonManager
     - UpdateDataManager
     DOTween.dll:
@@ -137,43 +139,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10040}
     - Class: 114
-      Script: {instanceID: 10136}
+      Script: {instanceID: 10086}
     - Class: 114
-      Script: {instanceID: 10176}
+      Script: {instanceID: 10138}
     - Class: 114
-      Script: {instanceID: 10194}
+      Script: {instanceID: 10178}
     - Class: 114
-      Script: {instanceID: 10242}
+      Script: {instanceID: 10196}
     - Class: 114
-      Script: {instanceID: 10272}
+      Script: {instanceID: 10244}
     - Class: 114
-      Script: {instanceID: 10378}
+      Script: {instanceID: 10274}
     - Class: 114
-      Script: {instanceID: 10382}
+      Script: {instanceID: 10380}
     - Class: 114
-      Script: {instanceID: 10450}
+      Script: {instanceID: 10384}
     - Class: 114
-      Script: {instanceID: 10460}
+      Script: {instanceID: 10452}
     - Class: 114
-      Script: {instanceID: 10546}
+      Script: {instanceID: 10462}
     - Class: 114
-      Script: {instanceID: 10554}
+      Script: {instanceID: 10548}
     - Class: 114
       Script: {instanceID: 10556}
     - Class: 114
-      Script: {instanceID: 10586}
+      Script: {instanceID: 10558}
     - Class: 114
-      Script: {instanceID: 10880}
+      Script: {instanceID: 10588}
     - Class: 114
-      Script: {instanceID: 10920}
+      Script: {instanceID: 10882}
     - Class: 114
-      Script: {instanceID: 11004}
+      Script: {instanceID: 10922}
     - Class: 114
-      Script: {instanceID: 11040}
+      Script: {instanceID: 11006}
     - Class: 114
-      Script: {instanceID: 11080}
+      Script: {instanceID: 11042}
     - Class: 114
-      Script: {instanceID: 11088}
+      Script: {instanceID: 11082}
+    - Class: 114
+      Script: {instanceID: 11090}
+    - Class: 114
+      Script: {instanceID: 17484}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -201,7 +207,7 @@ ScriptsOnlyBuild:
     className: AppleManager
   - hash:
       serializedVersion: 2
-      Hash: a6a1dac0bb8deba5433e5d8522a88fa4
+      Hash: e06a76e9faf7a43ceafc561e97c20661
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DialogManager
@@ -249,7 +255,7 @@ ScriptsOnlyBuild:
     className: Sample12_ReactiveProperty
   - hash:
       serializedVersion: 2
-      Hash: 16c21dda38418447e9b67a36acc2a5af
+      Hash: fbc5c4a9377e2b8c0ab50e93d3609184
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UpdateDataManager
@@ -291,7 +297,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: cc1ba1021049637267a02731843af23b
+      Hash: 31eb47cb6232e444129029760610fe6c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainSceneManager
@@ -873,6 +879,12 @@ ScriptsOnlyBuild:
     className: ObservableEnableTrigger
   - hash:
       serializedVersion: 2
+      Hash: 0d3bc83706d61bc30dbc209013cbcb4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GetCoinDialogManager
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -933,7 +945,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: b0d5aa01281c1612e093ecaa64fa85ef
+      Hash: a3eeabacf3850dfa07769de4d3c3efbe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GachaSceneManager
@@ -1303,6 +1315,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 7569777dfa4822c22c3f083d03a229f0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TimeBonusManager
   platform: 9
   scenePathNames:
   - Assets/Scenes/MainScene.unity

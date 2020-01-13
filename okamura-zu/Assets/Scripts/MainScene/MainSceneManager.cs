@@ -26,6 +26,7 @@ public class MainSceneManager : MonoBehaviour
     public GameObject damageTextPrefab;
     public GameObject btn_toBossBattle;
     public GameObject btn_monsterOrganization; //モンスター編成ボタン
+    public GameObject btnGetCoin; //タイムボーナスのボタン
     public GameObject txtAddApple;
     public GameObject updateDataManager;
 
@@ -82,6 +83,12 @@ public class MainSceneManager : MonoBehaviour
             .OnPointerClickAsObservable()
             .Subscribe(_ => {
                 dialogManager.GetComponent<DialogManager>().OpenDialog(DialogType.MonsterStrengthen);
+            });
+
+        btnGetCoin.AddComponent<ObservableEventTrigger>()
+            .OnPointerClickAsObservable()
+            .Subscribe(_ => {
+                dialogManager.GetComponent<DialogManager>().OpenDialog(DialogType.GetCoin);
             });
     }
 

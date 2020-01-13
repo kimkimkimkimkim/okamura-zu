@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\Common\UpdateDataManager.cs" />
      <Compile Include="Assets\Scripts\Dialog\CannotSingleGachaDialogManager.cs" />
      <Compile Include="Assets\Scripts\Dialog\DialogManager.cs" />
+     <Compile Include="Assets\Scripts\Dialog\GetCoinDialogManager.cs" />
      <Compile Include="Assets\Scripts\Dialog\MonsterStrengthenDialogListComponent.cs" />
      <Compile Include="Assets\Scripts\Dialog\MonsterStrengthenDialogManager.cs" />
      <Compile Include="Assets\Scripts\Dialog\SingleGachaDialogManager.cs" />
@@ -99,6 +100,8 @@
      <Compile Include="Assets\Scripts\MainScene\NamakemonoData.cs" />
      <Compile Include="Assets\Scripts\MainScene\NavigationButton.cs" />
      <Compile Include="Assets\Scripts\MainScene\ToCollectionSceneButtonManager.cs" />
+     <Compile Include="Assets\Scripts\TimeBonus\TimeBonusData.cs" />
+     <Compile Include="Assets\Scripts\TimeBonus\TimeBonusManager.cs" />
      <Compile Include="Assets\Terasurware\Classes\BossData.cs" />
      <Compile Include="Assets\Terasurware\Classes\EnemyData.cs" />
      <Compile Include="Assets\Terasurware\Classes\NamakemonoExcelData.cs" />

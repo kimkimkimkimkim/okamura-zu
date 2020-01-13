@@ -21,6 +21,7 @@ public class GachaSceneManager : MonoBehaviour
     public GameObject navigationManager;
     public GameObject img_gachaItem;
     public GameObject imgGachaItemInExplanation;
+    public GameObject textGachaItemName;
     public GameObject txt_tap;
     public GameObject explanationView;
     public GameObject txtPossessedPoint;
@@ -33,7 +34,7 @@ public class GachaSceneManager : MonoBehaviour
     private bool canGoDetail = false;
     private Vector3 iniPos_gachaItem;
     private int gachaCost = 100;
-    private int allMonsterCount = 2; //モンスターの総数
+    private int allMonsterCount = 21; //モンスターの総数
 
     void Start(){
         //SaveData.Remove(SaveDataKeys.possessedNamakemonoList);
@@ -133,6 +134,7 @@ public class GachaSceneManager : MonoBehaviour
 
         img_gachaItem.GetComponent<Image>().sprite = s;
         imgGachaItemInExplanation.GetComponent<Image>().sprite = s;
+        textGachaItemName.GetComponent<Text>().text = namakemonoExcelData.sheets[0].list[int.Parse(gachaItem)-1].Name;
     }
 
     //ガチャで取得したアイテムを保存
